@@ -1,0 +1,50 @@
+# ============================================================
+# «Аура красоты» — весь стек одной командой: docker compose up -d
+#  db    — PostgreSQL 16 (данные в volume auradb)
+#  web   — Go/gin API (:8080 внутри сети)
+#  nginx — раздача frontend/ + прокси /api и /uploads на web (:80 наружу)
+# ============================================================
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: aura
+      POSTGRES_PASSWORD: aura
+      POSTGRES_DB: aura
+    volumes:
+      - auradb:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aura -d aura"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build: ./server
+    environment:
+      DATABASE_URL: postgres://aura:aura@db:5432/aura?sslmode=disable
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-aura2026}
+      AUTH_SECRET: ${AUTH_SECRET:-aura-dev-secret-change-me}
+      TG_BOT_TOKEN: ${TG_BOT_TOKEN:-}
+      TG_CHAT_ID: ${TG_CHAT_ID:-}
+      PORT: "8080"
+    volumes:
+      - uploads:/app/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend:/var/www/aura:ro
+      - ./deploy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web
+
+volumes:
+  auradb:
+  uploads:

@@ -1,0 +1,10 @@
+# секреты и окружение
+server/.env
+
+# загруженные фото
+server/uploads/
+
+# служебное
+Thumbs.db
+.DS_Store
+*.log

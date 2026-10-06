@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <!-- Декоративная веточка с цветами «от руки» для углов секций -->
+  <g stroke="#E9A9BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 310 C90 260 130 210 160 150 C186 98 210 60 268 28" stroke-width="2.6"/>
+    <!-- большой цветок -->
+    <g transform="translate(160 96) rotate(12)">
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#FBE3EC" transform="rotate(0)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F7CFDE" transform="rotate(72)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#FBE3EC" transform="rotate(144)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F7CFDE" transform="rotate(216)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#FDF0F5" transform="rotate(288)"/>
+      <circle r="6.5" fill="#F0AFC5"/>
+    </g>
+    <!-- маленький цветок -->
+    <g transform="translate(88 196) rotate(-18)">
+      <circle r="4" fill="#F0AFC5"/>
+      <g fill="#FBDCE8">
+        <ellipse rx="4.5" ry="10" transform="rotate(0) translate(0 -12)"/>
+        <ellipse rx="4.5" ry="10" transform="rotate(72) translate(0 -12)"/>
+        <ellipse rx="4.5" ry="10" transform="rotate(144) translate(0 -12)"/>
+        <ellipse rx="4.5" ry="10" transform="rotate(216) translate(0 -12)"/>
+        <ellipse rx="4.5" ry="10" transform="rotate(288) translate(0 -12)"/>
+      </g>
+    </g>
+    <!-- бутон -->
+    <g transform="translate(236 58) rotate(24)">
+      <path d="M0 0 C-9 -6 -10 -20 0 -26 C10 -20 9 -6 0 0 Z" fill="#F7CFDE"/>
+      <path d="M0 -24 C0 -16 0 -8 0 0" stroke-width="1.6"/>
+    </g>
+    <!-- листья -->
+    <path d="M118 226 C104 214 88 214 78 224 C88 236 106 236 118 226 Z" fill="#FBDCE8"/>
+    <path d="M132 186 C144 172 160 168 172 176 C164 190 146 194 132 186 Z" fill="#F7CFDE"/>
+    <path d="M204 118 C194 106 180 104 170 112 C178 124 194 126 204 118 Z" fill="#FBDCE8"/>
+    <!-- точки-акценты -->
+    <g fill="#E9A9BE" stroke="none">
+      <circle cx="64" cy="262" r="3.4"/>
+      <circle cx="270" cy="140" r="3"/>
+      <circle cx="296" cy="96" r="2.2"/>
+      <circle cx="196" cy="172" r="2.6"/>
+    </g>
+  </g>
+</svg>

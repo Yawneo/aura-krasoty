@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Логотип «Аура красоты»: нежный цветочек, нарисованный «от руки» -->
+  <defs>
+    <path id="petal" d="M32 26.5 C27.2 19.5 28 8.2 32.4 4.6 C36.9 8.6 37.6 19.8 33.6 26.6 C33.1 27.4 32.6 27.4 32 26.5 Z"/>
+  </defs>
+  <g stroke="#D17893" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#petal" fill="#FBDCE8" transform="rotate(0 32 27)"/>
+    <use href="#petal" fill="#F7CFDE" transform="rotate(72 32 27)"/>
+    <use href="#petal" fill="#FBDCE8" transform="rotate(144 32 27)"/>
+    <use href="#petal" fill="#F7CFDE" transform="rotate(216 32 27)"/>
+    <use href="#petal" fill="#FBE3EC" transform="rotate(288 32 27)"/>
+    <circle cx="32" cy="26.8" r="4.4" fill="#F0AFC5"/>
+    <path d="M30.6 26.4 c1.2-1.3 2.9-1 3.6 .4 c-1.5 .9-3 .7-3.6 -.4 Z" fill="#D17893" stroke="none"/>
+    <!-- стебель и листики, чуть неровные — эффект рисунка от руки -->
+    <path d="M31.6 33.5 C30.2 42 33.4 49 30.8 59"/>
+    <path d="M31.3 45.5 C26.8 42.8 22.4 43.6 19.6 47.8 C24.4 50.4 28.8 49.3 31.3 45.5 Z" fill="#F7CFDE"/>
+    <path d="M31.9 51.5 C36.2 49.4 40.4 50.6 42.8 54.6 C38.2 56.9 34.2 55.4 31.9 51.5 Z" fill="#FBDCE8"/>
+  </g>
+</svg>

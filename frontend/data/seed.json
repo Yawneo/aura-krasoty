@@ -1,0 +1,27 @@
+{
+  "categories": [
+    { "id": 1, "slug": "care", "name": "Уход за волосами", "sort": 1 },
+    { "id": 2, "slug": "styling", "name": "Стайлинг", "sort": 2 },
+    { "id": 3, "slug": "accessories", "name": "Аксессуары", "sort": 3 },
+    { "id": 4, "slug": "devices", "name": "Приборы для укладки", "sort": 4 },
+    { "id": 5, "slug": "sets", "name": "Подарочные наборы", "sort": 5 }
+  ],
+  "products": [
+    { "id": 1,  "name": "Шампунь «Роза и шёлк»", "description": "Мягкое очищение для окрашенных и повреждённых волос, 300 мл", "category_id": 1, "price": 790,  "discount": 0,  "photo": "assets/img/products/shampoo.svg", "active": true, "sort": 1 },
+    { "id": 2,  "name": "Бальзам-ополаскиватель «Нежность»", "description": "Лёгкое расчёсывание и блеск без утяжеления, 300 мл", "category_id": 1, "price": 690,  "discount": 15, "photo": "assets/img/products/balm.svg", "active": true, "sort": 2 },
+    { "id": 3,  "name": "Маска «Глубокое питание»", "description": "Интенсивное восстановление после окрашивания, 250 мл", "category_id": 1, "price": 1290, "discount": 0,  "photo": "assets/img/products/mask.svg", "active": true, "sort": 3 },
+    { "id": 4,  "name": "Масло для кончиков «Шёлк»", "description": "Запечатывает секущиеся кончики, не жирнит, 50 мл", "category_id": 1, "price": 890,  "discount": 10, "photo": "assets/img/products/oil.svg", "active": true, "sort": 4 },
+    { "id": 5,  "name": "Тоник-уход для кожи головы", "description": "Успокаивает кожу, укрепляет корни, 150 мл", "category_id": 1, "price": 990,  "discount": 20, "photo": "assets/img/products/tonic.svg", "active": true, "sort": 5 },
+    { "id": 6,  "name": "Набор для кератинового выпрямления", "description": "Домашний уход: шампунь, состав, фиксирующая сыворотка", "category_id": 1, "price": 2490, "discount": 0,  "photo": "assets/img/products/keratin.svg", "active": true, "sort": 6 },
+    { "id": 7,  "name": "Спрей-термозащита «Аура»", "description": "Защита до 220 °C при горячих укладках, 200 мл", "category_id": 2, "price": 850,  "discount": 0,  "photo": "assets/img/products/spray.svg", "active": true, "sort": 1 },
+    { "id": 8,  "name": "Сыворотка-стайлер для гладкости", "description": "Разглаживает волосы и дарит зеркальный блеск, 30 мл", "category_id": 2, "price": 1490, "discount": 0,  "photo": "assets/img/products/serum.svg", "active": true, "sort": 2 },
+    { "id": 9,  "name": "Расчёска для распутывания", "description": "Мягкая щетина, не травмирует влажные волосы", "category_id": 3, "price": 590,  "discount": 0,  "photo": "assets/img/products/comb.svg", "active": true, "sort": 1 },
+    { "id": 10, "name": "Набор заколок «Пастель»", "description": "Краб и невидимки в нежных оттенках, 6 предметов", "category_id": 3, "price": 490,  "discount": 0,  "photo": "assets/img/products/clips.svg", "active": true, "sort": 2 },
+    { "id": 11, "name": "Резинки-жгуты «Маршмеллоу»", "description": "Не оставляют заломов, 2 штуки", "category_id": 3, "price": 390,  "discount": 0,  "photo": "assets/img/products/scrunchie.svg", "active": true, "sort": 3 },
+    { "id": 12, "name": "Фен «Аура Air» 1800 Вт", "description": "Ионизация, 3 режима, концентратор в комплекте", "category_id": 4, "price": 3990, "discount": 10, "photo": "assets/img/products/dryer.svg", "active": true, "sort": 1 },
+    { "id": 13, "name": "Утюжок «Гладкость»", "description": "Керамические пластины, регулировка до 230 °C", "category_id": 4, "price": 3290, "discount": 0,  "photo": "assets/img/products/iron.svg", "active": true, "sort": 2 },
+    { "id": 14, "name": "Плойка «Волна» 25 мм", "description": "Локоны как из салона, керамическое покрытие", "category_id": 4, "price": 2790, "discount": 15, "photo": "assets/img/products/curler.svg", "active": true, "sort": 3 },
+    { "id": 15, "name": "Подарочный набор «Розовый рассвет»", "description": "Шампунь, маска и масло в праздничной упаковке", "category_id": 5, "price": 1990, "discount": 25, "photo": "assets/img/products/gift.svg", "active": true, "sort": 1 },
+    { "id": 16, "name": "Набор «Салонный уход дома»", "description": "Бальзам, сыворотка и термозащита в корзинке", "category_id": 5, "price": 2490, "discount": 0,  "photo": "assets/img/products/set.svg", "active": true, "sort": 2 }
+  ]
+}

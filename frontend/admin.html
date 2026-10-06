@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель управления — Аура красоты</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <!-- ======= Экран входа ======= -->
+  <div class="admin-login" id="loginScreen">
+    <div class="modal" style="max-width:420px">
+      <div class="center" style="margin-bottom:16px">
+        <img src="assets/logo.svg" alt="" style="width:64px;height:64px;margin:0 auto 10px">
+        <h3 style="margin-bottom:4px">Панель управления</h3>
+        <p style="color:var(--text-muted);font-size:14px">Салон красоты «Аура красоты»</p>
+      </div>
+      <form id="loginForm" class="order-form">
+        <input type="password" id="passwordInput" placeholder="Пароль администратора" required autofocus>
+        <button type="submit" class="btn btn--primary" id="loginBtn">Войти</button>
+      </form>
+      <p class="admin-hint">Демо-пароль без бэкенда: <b>aura2026</b><br>С бэкендом пароль задаётся переменной ADMIN_PASSWORD.</p>
+    </div>
+  </div>
+
+  <!-- ======= Панель ======= -->
+  <div class="admin-shell" id="adminShell">
+    <div class="admin-topbar">
+      <div class="container admin-topbar__inner">
+        <a class="logo" href="index.html">
+          <img src="assets/logo.svg" alt="">
+          <span class="logo__text" style="font-size:21px">Аура красоты<small>панель управления</small></span>
+        </a>
+        <span class="mode-badge mode-badge--local" id="modeBadge">…</span>
+        <div style="margin-left:auto;display:flex;gap:10px">
+          <button class="btn btn--soft btn--sm" id="refreshBtn">↻ Обновить</button>
+          <a class="btn btn--ghost btn--sm" href="catalog.html" target="_blank">Открыть сайт</a>
+          <button class="btn btn--danger btn--sm" id="logoutBtn">Выйти</button>
+        </div>
+      </div>
+    </div>
+
+    <main class="container" style="padding-bottom:80px">
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="products">🧴 Товары и цены</button>
+        <button class="admin-tab" data-tab="status">🏷 Статусы по категориям</button>
+        <button class="admin-tab" data-tab="categories">📁 Категории</button>
+        <button class="admin-tab" data-tab="orders">🧾 Заказы</button>
+      </div>
+
+      <!-- ===== Товары и цены ===== -->
+      <section class="admin-panel active" id="panel-products">
+        <div class="admin-head-row">
+          <h2>Товары <small id="productsCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <select id="productFilter" class="chip" style="appearance:none"></select>
+            <button class="btn btn--primary btn--sm" id="addProductBtn">+ Добавить товар</button>
+          </div>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr><th></th><th>Название</th><th>Категория</th><th>Цена</th><th>Статус</th><th style="text-align:right">Действия</th></tr>
+          </thead>
+          <tbody id="productsTbody"></tbody>
+        </table>
+      </section>
+
+      <!-- ===== Статусы по категориям ===== -->
+      <section class="admin-panel" id="panel-status">
+        <div class="admin-head-row">
+          <h2>Статусы товаров</h2>
+          <p style="color:var(--text-muted);font-size:14px">Скройте товар на время, отредактируйте или удалите его</p>
+        </div>
+        <div id="statusBoard"></div>
+      </section>
+
+      <!-- ===== Категории ===== -->
+      <section class="admin-panel" id="panel-categories">
+        <div class="admin-head-row">
+          <h2>Категории каталога</h2>
+          <button class="btn btn--primary btn--sm" id="addCategoryBtn">+ Добавить категорию</button>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr><th>Название</th><th>Идентификатор</th><th>Товаров</th><th style="text-align:right">Действия</th></tr>
+          </thead>
+          <tbody id="categoriesTbody"></tbody>
+        </table>
+      </section>
+
+      <!-- ===== Заказы ===== -->
+      <section class="admin-panel" id="panel-orders">
+        <div class="admin-head-row">
+          <h2>Заказы <small id="ordersCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
+          <select id="orderFilter" class="chip" style="appearance:none">
+            <option value="all">Все заказы</option>
+            <option value="new">Только новые</option>
+            <option value="delivered">Доставленные</option>
+          </select>
+        </div>
+        <div id="ordersList"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ======= Модалка товара ======= -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal" style="max-width:640px">
+      <button class="modal__close" id="productModalClose" aria-label="Закрыть">✕</button>
+      <h3 id="productModalTitle">Новый товар</h3>
+      <form id="productForm">
+        <input type="hidden" id="productId">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="productName">Название *</label>
+            <input type="text" id="productName" required placeholder="Шампунь «Роза и шёлк»">
+          </div>
+          <div class="field">
+            <label for="productCategory">Категория</label>
+            <select id="productCategory"></select>
+          </div>
+          <div class="field">
+            <label for="productSort">Порядок показа</label>
+            <input type="number" id="productSort" value="0" min="0">
+          </div>
+          <div class="field">
+            <label for="productPrice">Цена, ₽ *</label>
+            <input type="number" id="productPrice" required min="0" step="10" placeholder="790">
+          </div>
+          <div class="field">
+            <label for="productDiscount">Скидка, %</label>
+            <input type="number" id="productDiscount" value="0" min="0" max="99">
+          </div>
+          <div class="field full">
+            <label for="productPhoto">Фото (ссылка или файл из набора сайта)</label>
+            <input type="text" id="productPhoto" list="builtinPhotos" placeholder="assets/img/products/shampoo.svg">
+            <datalist id="builtinPhotos">
+              <option value="assets/img/products/shampoo.svg">шампунь</option>
+              <option value="assets/img/products/balm.svg">бальзам</option>
+              <option value="assets/img/products/mask.svg">маска</option>
+              <option value="assets/img/products/oil.svg">масло</option>
+              <option value="assets/img/products/spray.svg">спрей</option>
+              <option value="assets/img/products/serum.svg">сыворотка</option>
+              <option value="assets/img/products/tonic.svg">тоник</option>
+              <option value="assets/img/products/keratin.svg">кератин</option>
+              <option value="assets/img/products/comb.svg">расчёска</option>
+              <option value="assets/img/products/clips.svg">заколки</option>
+              <option value="assets/img/products/scrunchie.svg">резинки</option>
+              <option value="assets/img/products/dryer.svg">фен</option>
+              <option value="assets/img/products/iron.svg">утюжок</option>
+              <option value="assets/img/products/curler.svg">плойка</option>
+              <option value="assets/img/products/gift.svg">подарочный набор</option>
+              <option value="assets/img/products/set.svg">набор в корзинке</option>
+            </datalist>
+            <div class="photo-preview" id="photoPreview">Здесь появится фото товара</div>
+          </div>
+          <div class="field full">
+            <label for="productDesc">Описание</label>
+            <textarea id="productDesc" rows="2" placeholder="Короткое описание для карточки"></textarea>
+          </div>
+          <div class="field full">
+            <label class="check"><input type="checkbox" id="productActive" checked> Показывать в каталоге</label>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <button type="submit" class="btn btn--primary">Сохранить</button>
+          <button type="button" class="btn btn--ghost" id="productCancel">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

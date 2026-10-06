@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
+  <circle cx="240" cy="240" r="200" fill="#FDF0F5"/>
+  <ellipse cx="240" cy="396" rx="120" ry="16" fill="#F7CFDE" opacity="0.55"/>
+  <g stroke="#B56A82" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="130" y="200" width="220" height="170" rx="18" fill="#FBDCE8"/>
+    <path d="M120 200 h240 l-14-40 c-3-9-11-14-20-14 H154 c-9 0-17 5-20 14 Z" fill="#F0AFC5"/>
+    <rect x="222" y="200" width="36" height="60" rx="6" fill="#FFFFFF"/>
+    <path d="M240 260 c-26-2-44 12-44 32 0 16 14 28 34 28 18 0 32-10 44-24 12 14 26 24 44 24 20 0 34-12 34-28 0-20-18-34-44-32 -14 1-26 8-34 18 -8-10-20-17-34-18 Z" fill="none" opacity="0.9" transform="translate(0 96) scale(0.55) translate(196 -180)"/>
+    <path d="M130 214 l-6 142 M350 214 l6 142" stroke-width="5" opacity="0.5"/>
+    <g transform="translate(240 118)">
+      <circle r="9" fill="#F0AFC5"/>
+      <ellipse rx="7" ry="17" transform="rotate(0) translate(0 -22)" fill="#F7CFDE"/>
+      <ellipse rx="7" ry="17" transform="rotate(72) translate(0 -22)" fill="#F7CFDE"/>
+      <ellipse rx="7" ry="17" transform="rotate(144) translate(0 -22)" fill="#F7CFDE"/>
+      <ellipse rx="7" ry="17" transform="rotate(216) translate(0 -22)" fill="#F7CFDE"/>
+      <ellipse rx="7" ry="17" transform="rotate(288) translate(0 -22)" fill="#F7CFDE"/>
+    </g>
+  </g>
+</svg>

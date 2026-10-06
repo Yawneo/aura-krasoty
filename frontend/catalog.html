@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — Аура красоты | Косметика для волос, аксессуары и приборы</title>
+  <meta name="description" content="Каталог салона красоты «Аура красоты» (Сургут): профессиональная косметика для волос, аксессуары, приборы для укладки и подарочные наборы.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
+  </noscript>
+</head>
+<body>
+
+  <!-- ======= Шапка ======= -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="Логотип Аура красоты">
+        <span class="logo__text">Аура красоты<small>салон красоты</small></span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Главная</a>
+        <a href="index.html#services">Услуги</a>
+        <a href="index.html#works">Наши работы</a>
+        <a href="catalog.html" class="active">Каталог</a>
+        <a href="index.html#contacts">Контакты</a>
+      </nav>
+      <div class="header__actions">
+        <button class="cart-btn" data-open-cart title="Корзина">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.5 13h-15L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+          <span class="cart-btn__count">0</span>
+        </button>
+        <a class="btn btn--primary btn--sm" href="tel:+73462616221">Записаться</a>
+        <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu">
+    <a href="index.html">Главная</a>
+    <a href="index.html#services">Услуги</a>
+    <a href="index.html#works">Наши работы</a>
+    <a href="catalog.html">Каталог</a>
+    <a href="index.html#contacts">Контакты</a>
+    <a href="admin.html">Панель управления</a>
+  </div>
+
+  <!-- ======= Каталог ======= -->
+  <section class="section" style="padding-top:56px">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:36px">
+        <span class="eyebrow">забери уход домой</span>
+        <h2>Каталог <span class="title-accent">красоты</span></h2>
+        <p>Соберите корзину — заказ придёт нам в Telegram, и мы всё подготовим к вашему визиту или доставим.</p>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="chips" id="chips"></div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="searchInput" placeholder="Найти товар…" autocomplete="off">
+        </div>
+        <select id="sortSelect" class="chip" style="appearance:none" aria-label="Сортировка">
+          <option value="popular">По порядку</option>
+          <option value="price-asc">Сначала дешевле</option>
+          <option value="price-desc">Сначала дороже</option>
+        </select>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </div>
+  </section>
+
+  <!-- ======= Футер ======= -->
+  <footer class="footer" style="margin-top:0">
+    <div class="container footer__bottom" style="margin-top:0;border:none">
+      <span>© 2026 Салон красоты «Аура красоты» · Сургут</span>
+      <span>Иконки — <a href="https://icons8.ru/" target="_blank" rel="noopener">Icons8</a></span>
+    </div>
+  </footer>
+
+  <!-- ======= Корзина (выдвижная панель) ======= -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Корзина">
+    <div class="drawer__head">
+      <h3>Корзина</h3>
+      <button class="drawer__close" id="drawerClose" aria-label="Закрыть">✕</button>
+    </div>
+    <div class="drawer__items" id="cartItems"></div>
+    <div class="drawer__foot" id="cartFoot">
+      <div class="drawer__total">
+        <span>Итого <em id="cartSaved" style="font-style:normal;color:var(--rose-deep)"></em></span>
+        <b id="cartTotal">0 ₽</b>
+      </div>
+      <form class="order-form" id="cartForm">
+        <div class="order-form__row">
+          <input type="text" id="orderName" placeholder="Ваше имя *" required>
+          <input type="tel" id="orderPhone" placeholder="Телефон *" required>
+        </div>
+        <select id="orderDelivery">
+          <option value="pickup">Самовывоз — Тюменский тракт, 4</option>
+          <option value="courier">Доставка по Сургуту (обсудим по телефону)</option>
+        </select>
+        <textarea id="orderComment" rows="2" placeholder="Комментарий к заказу (необязательно)"></textarea>
+        <button type="submit" class="btn btn--primary">Оформить заказ 🌷</button>
+      </form>
+    </div>
+  </aside>
+
+  <!-- ======= Окно успеха ======= -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal center">
+      <button class="modal__close" id="successClose" aria-label="Закрыть">✕</button>
+      <div class="success-icon">🌸</div>
+      <h3>Заказ принят!</h3>
+      <p style="color:var(--text-muted)">Мы уже получили его и скоро свяжемся с вами для подтверждения. Если что-то срочное — звоните: <a href="tel:+73462616221">+7 (3462) 61-62-21</a></p>
+      <button class="btn btn--primary" id="successOk" style="margin-top:20px">Хорошо!</button>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/catalog.js"></script>
+  <script>document.getElementById('successOk').addEventListener('click', () => document.getElementById('successModal').classList.remove('open'));</script>
+</body>
+</html>
