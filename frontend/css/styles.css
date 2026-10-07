@@ -436,7 +436,19 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 
 /* ---------- Преимущества ---------- */
 
-.benefits { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+/* стеклянная панель: фоновый узор под блоком размыт и не мешает тексту */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  background: rgba(255, 255, 255, 0.68);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  box-shadow: var(--shadow-card);
+  padding: 42px 36px;
+}
 .benefit { text-align: center; padding: 10px 14px; }
 .benefit img { width: 44px; height: 44px; margin: 0 auto 14px; opacity: 0.9; }
 .benefit b { display: block; font-family: var(--font-serif); font-size: 21px; margin-bottom: 4px; }
@@ -917,7 +929,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 
 @media (max-width: 1024px) {
   .services-grid, .teaser-grid, .catalog-grid { grid-template-columns: repeat(2, 1fr); }
-  .benefits { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .benefits { grid-template-columns: repeat(2, 1fr); gap: 26px; padding: 28px 20px; }
   .hero__inner { gap: 36px; }
   .hero__float--rating { left: 0; }
   .footer__inner { grid-template-columns: 1fr 1fr; }
