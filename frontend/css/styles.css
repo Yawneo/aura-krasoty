@@ -52,6 +52,8 @@ body {
   background-color: var(--bg);
   background-image: url('../assets/img/decor/pattern.svg');
   background-size: 240px 240px;
+  /* узор — единое фиксированное полотно за контентом */
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -68,13 +70,8 @@ input, select, textarea { font-family: inherit; font-size: 15px; color: var(--te
 h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--text); }
 
 .section { padding: 88px 0; position: relative; }
-/* полупрозрачная заливка — цветочный узор фона просвечивает в каждой секции */
-.section--soft {
-  background: linear-gradient(180deg,
-    rgba(255, 252, 253, 0) 0%,
-    rgba(249, 240, 243, 0.72) 50%,
-    rgba(255, 252, 253, 0) 100%);
-}
+/* никаких заливок — единый фоновый узор проходит сквозь все секции */
+.section--soft { background: transparent; }
 
 .section-head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
 .section-head .eyebrow { margin-bottom: 10px; }
@@ -207,7 +204,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .mobile-menu {
   display: none;
   position: fixed; inset: var(--header-h) 0 auto 0;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-soft);
   padding: 18px 24px 26px;
   flex-direction: column; gap: 4px;
@@ -356,7 +355,12 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 
 .service-card {
   counter-increment: svc;
-  background: linear-gradient(165deg, var(--white) 0%, #FFF8FB 55%, #FBE9F1 100%);
+  background: linear-gradient(165deg,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 248, 251, 0.7) 55%,
+    rgba(251, 233, 241, 0.62) 100%);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
   border: 1px solid var(--border-soft);
   border-radius: 26px;
   padding: 38px 30px 30px;
@@ -541,7 +545,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .about-photos img:nth-child(2):hover { transform: translateY(20px) rotate(1.4deg); box-shadow: var(--shadow-hover); }
 
 .contact-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.72);
+  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(9px);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
@@ -558,8 +564,10 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .socials a {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 9px 18px; border-radius: var(--radius-pill);
-  background: var(--pink-100); color: var(--rose-dark);
+  background: rgba(242, 222, 230, 0.72); color: var(--rose-dark);
   font-size: 13.5px; font-weight: 600;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
 .socials a:hover { background: var(--pink-200); transform: translateY(-2px); }
 .socials img { width: 18px; height: 18px; }
@@ -618,7 +626,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 
 /* ---------- Футер ---------- */
 
-.footer { background: linear-gradient(180deg, rgba(249, 240, 243, 0.9), rgba(242, 222, 230, 0.94)); padding: 56px 0 30px; margin-top: 60px; position: relative; overflow: hidden; }
+.footer { background: linear-gradient(180deg, rgba(249, 240, 243, 0.55), rgba(242, 222, 230, 0.62)); padding: 56px 0 30px; margin-top: 60px; position: relative; overflow: hidden; }
 .footer__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; position: relative; }
 .footer h4 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 14px; }
 .footer p, .footer a, .footer li { font-size: 14px; color: var(--text-muted); }
