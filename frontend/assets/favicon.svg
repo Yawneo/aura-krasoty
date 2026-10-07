@@ -2,13 +2,13 @@
   <defs>
     <path id="fpetal" d="M32 26.5 C27.2 19.5 28 8.2 32.4 4.6 C36.9 8.6 37.6 19.8 33.6 26.6 C33.1 27.4 32.6 27.4 32 26.5 Z"/>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#FDF0F5"/>
-  <g stroke="#D17893" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -1.5) scale(0.92) translate(2.8 0)">
-    <use href="#fpetal" fill="#FBDCE8"/>
-    <use href="#fpetal" fill="#F7CFDE" transform="rotate(72 32 27)"/>
-    <use href="#fpetal" fill="#FBDCE8" transform="rotate(144 32 27)"/>
-    <use href="#fpetal" fill="#F7CFDE" transform="rotate(216 32 27)"/>
-    <use href="#fpetal" fill="#FBE3EC" transform="rotate(288 32 27)"/>
-    <circle cx="32" cy="26.8" r="4.4" fill="#F0AFC5"/>
+  <rect width="64" height="64" rx="16" fill="#F9F0F3"/>
+  <g stroke="#7A3F56" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -1.5) scale(0.92) translate(2.8 0)">
+    <use href="#fpetal" fill="#F7E7EE"/>
+    <use href="#fpetal" fill="#F2D9E2" transform="rotate(72 32 27)"/>
+    <use href="#fpetal" fill="#F7E7EE" transform="rotate(144 32 27)"/>
+    <use href="#fpetal" fill="#F2D9E2" transform="rotate(216 32 27)"/>
+    <use href="#fpetal" fill="#F7E7EE" transform="rotate(288 32 27)"/>
+    <circle cx="32" cy="26.8" r="4.4" fill="#D9A1B6"/>
   </g>
 </svg>

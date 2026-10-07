@@ -109,6 +109,7 @@ func main() {
 		api.GET("/categories", listCategories(pool))
 		api.GET("/products", listProducts(pool))
 		api.POST("/orders", createOrder(pool, &cfg))
+		api.POST("/appointments", createAppointment(pool, &cfg))
 
 		// админ
 		api.POST("/admin/login", login(&cfg))

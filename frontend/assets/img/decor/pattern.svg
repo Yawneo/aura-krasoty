@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
   <!-- Тонкий цветочный узор для фона страницы, очень бледный -->
-  <g stroke="#D17893" stroke-width="1.4" fill="none" opacity="0.07" stroke-linecap="round">
+  <g stroke="#7A3F56" stroke-width="1.4" fill="none" opacity="0.07" stroke-linecap="round">
     <g transform="translate(56 60)">
       <circle r="5"/>
       <ellipse rx="4" ry="11" transform="rotate(0) translate(0 -15)"/>
@@ -19,10 +19,10 @@
       <ellipse rx="3.4" ry="9" transform="rotate(216) translate(0 -12)"/>
       <ellipse rx="3.4" ry="9" transform="rotate(288) translate(0 -12)"/>
     </g>
-    <circle cx="150" cy="30" r="2.4" fill="#D17893"/>
-    <circle cx="230" cy="86" r="1.8" fill="#D17893"/>
-    <circle cx="30" cy="196" r="2" fill="#D17893"/>
-    <circle cx="110" cy="240" r="1.6" fill="#D17893"/>
+    <circle cx="150" cy="30" r="2.4" fill="#7A3F56"/>
+    <circle cx="230" cy="86" r="1.8" fill="#7A3F56"/>
+    <circle cx="30" cy="196" r="2" fill="#7A3F56"/>
+    <circle cx="110" cy="240" r="1.6" fill="#7A3F56"/>
     <path d="M96 130 C104 122 116 120 124 126 C118 136 104 138 96 130 Z"/>
     <path d="M180 44 C172 36 160 34 152 40 C158 50 172 52 180 44 Z"/>
   </g>

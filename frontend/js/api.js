@@ -16,6 +16,7 @@ const AuraAPI = (() => {
     categories: 'aura_categories_v1',
     products: 'aura_products_v1',
     orders: 'aura_orders_v1',
+    appointments: 'aura_appointments_v1',
     token: 'aura_token_v1',
   };
 
@@ -228,6 +229,23 @@ const AuraAPI = (() => {
       await detect();
       if (mode === 'api') { await req(`/admin/orders/${id}`, { method: 'DELETE' }); return; }
       write(LS.orders, read(LS.orders, []).filter((o) => o.id !== id));
+    },
+
+    /* --- Запись на услуги --- */
+
+    async createAppointment(appt) {
+      await detect();
+      if (mode === 'api') return req('/appointments', { method: 'POST', body: JSON.stringify(appt) });
+      const items = read(LS.appointments, []);
+      const saved = {
+        id: nextId(items),
+        status: 'new',
+        created_at: new Date().toISOString(),
+        ...appt,
+      };
+      items.unshift(saved);
+      write(LS.appointments, items);
+      return saved;
     },
 
     /* --- Утилиты --- */

@@ -539,6 +539,53 @@ func deleteOrder(pool *pgxpool.Pool) gin.HandlerFunc {
 }
 
 /* ============================================================
+   Онлайн-запись на услуги
+   ============================================================ */
+
+type Appointment struct {
+	ID           int    `json:"id"`
+	CustomerName string `json:"customer_name"`
+	Phone        string `json:"phone"`
+	Service      string `json:"service"`
+	Date         string `json:"date"`
+	Time         string `json:"time"`
+	Comment      string `json:"comment"`
+	Status       string `json:"status"`
+	CreatedAt    string `json:"created_at"`
+}
+
+func createAppointment(pool *pgxpool.Pool, cfg *config) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var a Appointment
+		if err := c.ShouldBindJSON(&a); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Некорректный запрос"})
+			return
+		}
+		if strings.TrimSpace(a.CustomerName) == "" || strings.TrimSpace(a.Phone) == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Укажите имя и телефон"})
+			return
+		}
+		var id int
+		var createdAt time.Time
+		err := pool.QueryRow(context.Background(),
+			`INSERT INTO appointments(customer_name, phone, service, date, time, comment)
+			 VALUES ($1,$2,$3,$4,$5,$6) RETURNING id, created_at`,
+			a.CustomerName, a.Phone, a.Service, a.Date, a.Time, a.Comment).Scan(&id, &createdAt)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		a.ID, a.Status = id, "new"
+		a.CreatedAt = createdAt.Format(time.RFC3339)
+
+		// уведомление в Telegram — не блокируем ответ
+		go notifyTelegramBooking(cfg, a)
+
+		c.JSON(http.StatusOK, a)
+	}
+}
+
+/* ============================================================
    Загрузка фото товаров
    ============================================================ */
 

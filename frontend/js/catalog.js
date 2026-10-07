@@ -191,7 +191,10 @@
     const form = e.target;
     const name = form.querySelector('#orderName').value.trim();
     const phone = form.querySelector('#orderPhone').value.trim();
-    if (!name || !phone) { showToast('Заполните имя и телефон', true); return; }
+    if (!name || window.phoneDigits(phone).length < 11) {
+      showToast('Укажите имя и полный номер телефона', true);
+      return;
+    }
 
     const { items, total } = cartDetails();
     if (!items.length) { showToast('Корзина пуста', true); return; }

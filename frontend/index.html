@@ -36,7 +36,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.5 13h-15L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
           <span class="cart-btn__count">0</span>
         </button>
-        <a class="btn btn--primary btn--sm" href="tel:+73462616221">Записаться</a>
+        <button class="btn btn--primary btn--sm" data-book>Записаться</button>
         <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <h1>Раскрой <em>ауру</em> своей&nbsp;красоты</h1>
         <p class="hero__slogan">Волосы, в которые влюбляются с первого взгляда. Стрижки, окрашивание и уход, после которых отражение в зеркале улыбается тебе.</p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="tel:+73462616221">Записаться онлайн</a>
+          <button class="btn btn--primary" data-book>Записаться онлайн</button>
           <a class="btn btn--ghost" href="catalog.html">Смотреть каталог</a>
         </div>
         <div class="hero__stats">
@@ -133,7 +133,7 @@
         </article>
       </div>
       <div style="text-align:center; margin-top:44px;" class="reveal">
-        <a class="btn btn--primary" href="tel:+73462616221">Позвонить и записаться</a>
+        <button class="btn btn--primary" data-book>Записаться онлайн</button>
       </div>
     </div>
   </section>
@@ -223,35 +223,42 @@
         </div>
       </div>
 
-      <div class="contact-card reveal" style="margin-top:56px">
-        <div class="contact-row">
-          <img data-ico="map-marker" alt="Адрес">
-          <div><b>Адрес</b><span>г. Сургут, Тюменский тракт, 4 (Северный жилой район)</span></div>
+      <div class="contacts-grid">
+        <div class="contact-card reveal">
+          <div class="contact-row">
+            <img data-ico="map-marker" alt="Адрес">
+            <div><b>Адрес</b><span>г. Сургут, Тюменский тракт, 4 (Северный жилой район)</span></div>
+          </div>
+          <div class="contact-row">
+            <img data-ico="phone" alt="Телефон">
+            <div><b>Телефон</b><a class="val" href="tel:+73462616221">+7 (3462) 61-62-21</a> · <a class="val" href="tel:+79224132033">+7 (922) 413-20-33</a></div>
+          </div>
+          <div class="contact-row">
+            <img data-ico="clock" alt="Часы работы">
+            <div><b>График работы</b><span>вт–вс с 10:00 до 20:00 · пн — выходной</span></div>
+          </div>
+          <div class="contact-row">
+            <img data-ico="flower" alt="Запись">
+            <div><b>Онлайн-запись</b><span>выберите услугу, дату и время — мы позвоним подтвердить</span></div>
+          </div>
+          <button class="btn btn--primary" data-book style="width:100%; margin-top:14px">Записаться онлайн</button>
+          <div class="socials">
+            <a href="https://vk.ru/club109555364" target="_blank" rel="noopener"><img data-ico="vk-com" alt="">ВКонтакте</a>
+            <a href="https://t.me/89224132033" target="_blank" rel="noopener"><img data-ico="telegram-app" alt="">Telegram</a>
+          </div>
         </div>
-        <div class="contact-row">
-          <img data-ico="phone" alt="Телефон">
-          <div><b>Телефон</b><a class="val" href="tel:+73462616221">+7 (3462) 61-62-21</a> · <a class="val" href="tel:+79224132033">+7 (922) 413-20-33</a></div>
-        </div>
-        <div class="contact-row">
-          <img data-ico="clock" alt="Часы работы">
-          <div><b>График работы</b><span>вт–вс с 10:00 до 20:00 · пн — выходной</span></div>
-        </div>
-        <div class="socials">
-          <a href="https://vk.ru/club109555364" target="_blank" rel="noopener"><img data-ico="vk-com" alt="">ВКонтакте</a>
-          <a href="https://t.me/89224132033" target="_blank" rel="noopener"><img data-ico="telegram-app" alt="">Telegram</a>
-        </div>
-      </div>
 
-      <!-- Яндекс.Карта с карточкой организации -->
-      <div class="map-wrap reveal">
-        <iframe
-          src="https://yandex.ru/map-widget/v1/?ll=73.358309%2C61.276704&mode=poi&poi%5Bpoint%5D=73.358309%2C61.276704&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766784258&z=16.5"
-          title="Салон «Аура красоты» на карте Сургута"
-          allowfullscreen
-          loading="lazy"></iframe>
-        <div class="map-note">
-          <b>Аура красоты</b> · Тюменский тракт, 4 ·
-          <a href="https://yandex.com/maps/973/surgut/?mode=poi&poi%5Bpoint%5D=73.358309%2C61.276704&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766784258&z=16.19" target="_blank" rel="noopener">открыть в Яндекс.Картах ↗</a>
+        <!-- Яндекс.Карта с карточкой организации -->
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=73.358309%2C61.276704&mode=poi&poi%5Bpoint%5D=73.358309%2C61.276704&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766784258&z=16.5"
+            title="Салон «Аура красоты» на карте Сургута"
+            allowfullscreen
+            loading="lazy"></iframe>
+          <div class="map-note">
+            <b>Аура красоты</b> · Тюменский тракт, 4 ·
+            <a href="https://yandex.com/maps/973/surgut/?mode=poi&poi%5Bpoint%5D=73.358309%2C61.276704&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1766784258&z=16.19" target="_blank" rel="noopener">открыть в Яндекс.Картах ↗</a>
+          </div>
         </div>
       </div>
     </div>

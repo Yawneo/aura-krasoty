@@ -19,9 +19,28 @@ import (
 
 func notifyTelegram(cfg *config, o Order) {
 	text := formatOrderText(o)
+	sendTelegram(cfg, text, fmt.Sprintf("заказ №%d", o.ID))
+}
 
+func notifyTelegramBooking(cfg *config, a Appointment) {
+	var b strings.Builder
+	b.WriteString("📅 *Новая запись* — Аура красоты\n\n")
+	b.WriteString(fmt.Sprintf("👤 %s\n📞 %s\n", a.CustomerName, a.Phone))
+	if a.Service != "" {
+		b.WriteString(fmt.Sprintf("✂️ %s\n", a.Service))
+	}
+	if a.Date != "" || a.Time != "" {
+		b.WriteString(fmt.Sprintf("🗓 %s %s\n", a.Date, a.Time))
+	}
+	if a.Comment != "" {
+		b.WriteString(fmt.Sprintf("💬 %s\n", a.Comment))
+	}
+	sendTelegram(cfg, b.String(), fmt.Sprintf("запись %s", a.CustomerName))
+}
+
+func sendTelegram(cfg *config, text, label string) {
 	if cfg.tgBotToken == "" || cfg.tgChatID == "" {
-		log.Printf("[telegram] TG_BOT_TOKEN/TG_CHAT_ID не заданы — заказ №%d только в логе:\n%s", o.ID, text)
+		log.Printf("[telegram] TG_BOT_TOKEN/TG_CHAT_ID не заданы — %s только в логе:\n%s", label, text)
 		return
 	}
 
