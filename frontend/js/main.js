@@ -78,8 +78,37 @@
     initReveal();
     initIcons();
     initBooking();
+    initParallax();
+    initHeaderShadow();
     document.querySelectorAll('input[type="tel"]').forEach(applyPhoneMask);
   });
+
+  /* ---------- Тень шапки при прокрутке ---------- */
+  function initHeaderShadow() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+    const apply = () => header.classList.toggle('scrolled', window.scrollY > 8);
+    apply();
+    window.addEventListener('scroll', apply, { passive: true });
+  }
+
+  /* ---------- Параллакс веток и «блоба» в hero ---------- */
+  function initParallax() {
+    const sprigs = document.querySelectorAll('.hero__decor-sprig');
+    const blob = document.querySelector('.hero__blob');
+    if (!sprigs.length && !blob) return;
+    let ticking = false;
+    const apply = () => {
+      ticking = false;
+      const y = window.scrollY;
+      if (y > 1400) return;
+      sprigs.forEach((s, i) => { s.style.translate = `0 ${(y * (i ? 0.1 : 0.06)).toFixed(1)}px`; });
+      if (blob) blob.style.translate = `0 ${(y * 0.14).toFixed(1)}px`;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(apply); }
+    }, { passive: true });
+  }
 
   /* ---------- Маска телефона: +7 (999) 123-45-67 ----------
      Форматирует номер прямо во время ввода, как на популярных
@@ -135,7 +164,7 @@
   window.photoSrc = function (photo) {
     const u = photo || 'assets/img/products/shampoo.svg';
     if (!u.startsWith('assets/')) return u;
-    return u + (u.includes('?') ? '&' : '?') + 'v=4';
+    return u + (u.includes('?') ? '&' : '?') + 'v=5';
   };
 
   /* ---------- Окно записи (кнопки «Записаться») ----------
@@ -283,7 +312,7 @@
     else window.addEventListener('load', () => setTimeout(apply, 0));
   }
 
-  /* ---------- Появление блоков при прокрутке ---------- */
+  /* ---------- Появление блоков при прокрутке (каскадом внутри секции) ---------- */
 
   function initReveal() {
     const els = document.querySelectorAll('.reveal');
@@ -291,6 +320,9 @@
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
         if (en.isIntersecting) {
+          const parent = en.target.parentElement;
+          const idx = parent ? [...parent.children].indexOf(en.target) : 0;
+          en.target.style.animationDelay = Math.min(Math.max(idx, 0) * 90, 540) + 'ms';
           en.target.classList.add('visible');
           io.unobserve(en.target);
         }

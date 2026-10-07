@@ -104,11 +104,23 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 }
 
 .btn--primary {
+  position: relative;
+  overflow: hidden;
   background: var(--rose-deep);
   color: var(--white);
   box-shadow: 0 10px 24px rgba(97, 47, 68, 0.28);
 }
+.btn--primary::after {
+  content: '';
+  position: absolute; top: 0; left: -130%;
+  width: 55%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.65s ease;
+  pointer-events: none;
+}
 .btn--primary:hover { transform: translateY(-2px); background: var(--rose-dark); box-shadow: 0 16px 34px rgba(97, 47, 68, 0.38); }
+.btn--primary:hover::after { left: 140%; }
 
 .btn--ghost {
   background: transparent;
@@ -269,45 +281,147 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
   50% { transform: translateY(-10px); }
 }
 
+/* ---------- Анимации появления и движения ---------- */
+
+/* каскадный выход hero при загрузке */
+@keyframes heroUp { from { opacity: 0; transform: translateY(30px); } }
+@keyframes heroPhoto { from { opacity: 0; transform: translateY(36px) scale(0.965); } }
+.hero__hello { animation: heroUp 0.9s 0.05s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+.hero h1 { animation: heroUp 0.9s 0.18s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+.hero__slogan { animation: heroUp 0.9s 0.3s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+.hero__cta { animation: heroUp 0.9s 0.42s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+.hero__stats { animation: heroUp 0.9s 0.54s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+.hero__photo { animation: heroPhoto 1.1s 0.25s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+
+/* ветки цветов мягко покачиваются */
+.hero__decor-sprig--left { animation: swayLeft 10s ease-in-out infinite; }
+.hero__decor-sprig--right { animation: swayRight 12s ease-in-out infinite; }
+@keyframes swayLeft {
+  0%, 100% { transform: rotate(-14deg); }
+  50% { transform: rotate(-9deg); }
+}
+@keyframes swayRight {
+  0%, 100% { transform: rotate(148deg); }
+  50% { transform: rotate(153deg); }
+}
+
+/* появление секций при прокрутке (animation — не мешает hover-переходам) */
+.reveal { opacity: 0; }
+.reveal.visible { opacity: 1; animation: revealUp 0.9s cubic-bezier(0.22, 0.9, 0.3, 1) backwards; }
+@keyframes revealUp { from { opacity: 0; transform: translateY(30px); } }
+
+/* лёгкий зум фото работ и салона при наведении */
+.work-card img { transition: transform 1.4s cubic-bezier(0.22, 0.9, 0.3, 1); }
+.work-card:hover img { transform: scale(1.08); }
+
+/* «кен барнс» — медленное увеличение фото в hero */
+.hero__photo-main img { transition: transform 7s ease; }
+.hero__photo:hover .hero__photo-main img { transform: scale(1.07); }
+
+/* преимущества: иконки подпрыгивают */
+.benefit img { transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.benefit:hover img { transform: translateY(-7px) scale(1.12); }
+
+/* логотип крутится при наведении */
+.logo img { transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.logo:hover img { transform: rotate(12deg) scale(1.1); }
+
+/* шапка при прокрутке отбрасывает тень */
+.header { transition: box-shadow 0.4s ease, background 0.4s ease; }
+.header.scrolled { box-shadow: 0 10px 32px rgba(97, 47, 68, 0.10); }
+
+/* цветочек на экране успеха «дышит» */
+@keyframes successPulse { 50% { transform: scale(1.14) rotate(5deg); } }
+.success-icon { animation: successPulse 1.8s ease-in-out infinite; }
+
+/* уважение к настройке «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ---------- Услуги по волосам ---------- */
 
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; counter-reset: svc; }
 
 .service-card {
-  background: var(--white);
+  counter-increment: svc;
+  background: linear-gradient(165deg, var(--white) 0%, #FFF8FB 55%, #FBE9F1 100%);
   border: 1px solid var(--border-soft);
-  border-radius: var(--radius-lg);
-  padding: 34px 30px;
-  transition: var(--transition);
+  border-radius: 26px;
+  padding: 38px 30px 30px;
+  transition: transform 0.5s cubic-bezier(0.22, 0.9, 0.32, 1.35), box-shadow 0.5s ease, border-color 0.5s ease;
   position: relative;
   overflow: hidden;
 }
+/* номер карточки — 01, 02, … */
 .service-card::before {
-  content: '';
-  position: absolute; right: -34px; top: -34px;
-  width: 120px; height: 120px;
-  border-radius: 50%;
-  background: var(--pink-50);
-  transition: var(--transition);
+  content: counter(svc, decimal-leading-zero);
+  position: absolute; top: 16px; right: 24px;
+  font-family: var(--font-serif);
+  font-size: 46px; font-weight: 600;
+  color: var(--rose);
+  opacity: 0.30;
+  line-height: 1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: var(--border); }
-.service-card:hover::before { transform: scale(1.35); }
+/* цветок-водяной знак в углу */
+.service-card::after {
+  content: '';
+  position: absolute; left: -26px; bottom: -36px;
+  width: 138px; height: 138px;
+  background: url('../assets/logo.svg') center/contain no-repeat;
+  opacity: 0.09;
+  transform: rotate(-12deg);
+  transition: transform 0.7s cubic-bezier(0.22, 0.9, 0.3, 1), opacity 0.7s ease;
+  pointer-events: none;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 26px 54px rgba(97, 47, 68, 0.16);
+  border-color: rgba(201, 139, 162, 0.45);
+}
+.service-card:hover::before { opacity: 0.55; transform: translateY(-3px); }
+.service-card:hover::after { transform: rotate(6deg) scale(1.16); opacity: 0.16; }
 
 .service-card__ico {
   position: relative;
-  width: 64px; height: 64px;
-  border-radius: 20px;
-  background: var(--pink-100);
+  width: 66px; height: 66px;
+  border-radius: 22px;
+  background: linear-gradient(140deg, #F9E3EC, #EFCBDA);
+  box-shadow: inset 0 0 0 1px rgba(122, 63, 86, 0.08), 0 10px 20px rgba(122, 63, 86, 0.14);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 22px;
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
 }
-.service-card__ico img { width: 32px; height: 32px; }
+.service-card:hover .service-card__ico {
+  transform: scale(1.14) rotate(-7deg);
+  box-shadow: inset 0 0 0 1px rgba(122, 63, 86, 0.08), 0 16px 30px rgba(122, 63, 86, 0.22);
+}
+.service-card__ico img { width: 33px; height: 33px; transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.service-card:hover .service-card__ico img { transform: rotate(7deg); }
 .service-card h3 { font-size: 24px; margin-bottom: 10px; position: relative; }
 .service-card p { font-size: 14.5px; color: var(--text-muted); position: relative; min-height: 66px; }
 .service-card__price {
   position: relative;
+  display: inline-block;
   margin-top: 18px;
-  font-weight: 700; color: var(--rose-deep); font-size: 15px;
+  padding: 9px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--rose-deep);
+  color: var(--white);
+  font-weight: 700; font-size: 14.5px;
+  box-shadow: 0 10px 20px rgba(122, 63, 86, 0.24);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease, background 0.4s ease;
+}
+.service-card:hover .service-card__price {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 16px 28px rgba(122, 63, 86, 0.32);
+  background: var(--rose-dark);
 }
 
 /* ---------- Преимущества ---------- */
@@ -415,8 +529,10 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .about-text .signature { font-family: var(--font-cursive); font-size: 26px; color: var(--rose-deep); margin-top: 22px; transform: rotate(-2deg); display: inline-block; }
 
 .about-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.about-photos img { border-radius: var(--radius-md); box-shadow: var(--shadow-card); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+.about-photos img { border-radius: var(--radius-md); box-shadow: var(--shadow-card); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; transition: transform 0.7s cubic-bezier(0.22, 0.9, 0.3, 1), box-shadow 0.5s ease; }
 .about-photos img:nth-child(2) { transform: translateY(26px); }
+.about-photos img:nth-child(1):hover { transform: translateY(-6px) rotate(-1.4deg); box-shadow: var(--shadow-hover); }
+.about-photos img:nth-child(2):hover { transform: translateY(20px) rotate(1.4deg); box-shadow: var(--shadow-hover); }
 
 .contact-card {
   background: var(--white);
@@ -626,9 +742,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
   max-height: 90vh; overflow-y: auto;
   padding: 34px 36px;
   position: relative;
-  animation: modalIn 0.25s ease;
+  animation: modalPop 0.5s cubic-bezier(0.34, 1.35, 0.5, 1);
 }
-@keyframes modalIn { from { transform: translateY(18px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes modalPop { from { transform: translateY(34px) scale(0.94); opacity: 0; } }
 
 .modal__close { position: absolute; top: 16px; right: 16px; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--border); background: var(--white); color: var(--rose-deep); font-size: 18px; }
 .modal h3 { font-size: 28px; margin-bottom: 18px; }
