@@ -228,7 +228,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
   pointer-events: none;
 }
 .hero__decor-sprig--left { left: -130px; top: -40px; transform: rotate(-14deg); }
-.hero__decor-sprig--right { right: -150px; bottom: -110px; transform: rotate(148deg); }
+.hero__decor-sprig--right { right: -170px; bottom: 40px; transform: rotate(165deg); }
 
 .hero__blob {
   position: absolute;
@@ -306,8 +306,8 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
   50% { transform: rotate(-9deg); }
 }
 @keyframes swayRight {
-  0%, 100% { transform: rotate(148deg); }
-  50% { transform: rotate(153deg); }
+  0%, 100% { transform: rotate(165deg); }
+  50% { transform: rotate(170deg); }
 }
 
 /* появление секций при прокрутке (animation — не мешает hover-переходам) */
