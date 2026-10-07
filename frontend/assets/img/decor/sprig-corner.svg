@@ -1,42 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
-  <!-- Декоративная веточка с цветами «от руки» для углов секций -->
-  <g stroke="#C98BA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 310 C90 260 130 210 160 150 C186 98 210 60 268 28" stroke-width="2.6"/>
+  <!-- Угловая ветка в стиле фонового узора:
+       тонкий бледный контур, лёгкие заливки, кончик растворяется в фоне. -->
+  <defs>
+    <linearGradient id="sprigFade" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="0.55" stop-color="#fff" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0.08"/>
+    </linearGradient>
+    <mask id="sprigMask"><rect width="320" height="320" fill="url(#sprigFade)"/></mask>
+  </defs>
+  <g mask="url(#sprigMask)" opacity="0.55" stroke="#8A5066" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- стебель: неровный, «от руки» -->
+    <path d="M20 310 C90 262 132 212 162 152 C188 100 212 62 270 30" stroke-width="2.2"/>
     <!-- большой цветок -->
     <g transform="translate(160 96) rotate(12)">
-      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F7E7EE" transform="rotate(0)"/>
-      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F2D9E2" transform="rotate(72)"/>
-      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F7E7EE" transform="rotate(144)"/>
-      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F2D9E2" transform="rotate(216)"/>
-      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F9F0F3" transform="rotate(288)"/>
-      <circle r="6.5" fill="#D9A1B6"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F7E7EE" fill-opacity="0.85"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F2D9E2" fill-opacity="0.85" transform="rotate(72)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F7E7EE" fill-opacity="0.85" transform="rotate(144)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F2D9E2" fill-opacity="0.85" transform="rotate(216)"/>
+      <path d="M0 -8 C-7 -20 -5.5 -36 1 -41 C7.5 -35 8.5 -19 1.6 -8 C1 -7 0.6 -7 0 -8 Z" fill="#F9F0F3" fill-opacity="0.85" transform="rotate(288)"/>
+      <circle r="6" fill="#D9A1B6" fill-opacity="0.7"/>
     </g>
-    <!-- маленький цветок -->
-    <g transform="translate(88 196) rotate(-18)">
-      <circle r="4" fill="#D9A1B6"/>
-      <g fill="#F7E7EE">
-        <ellipse rx="4.5" ry="10" transform="rotate(0) translate(0 -12)"/>
-        <ellipse rx="4.5" ry="10" transform="rotate(72) translate(0 -12)"/>
-        <ellipse rx="4.5" ry="10" transform="rotate(144) translate(0 -12)"/>
-        <ellipse rx="4.5" ry="10" transform="rotate(216) translate(0 -12)"/>
-        <ellipse rx="4.5" ry="10" transform="rotate(288) translate(0 -12)"/>
+    <!-- малый цветок -->
+    <g transform="translate(88 198) rotate(-18)">
+      <circle r="3.6" fill="#D9A1B6" fill-opacity="0.7"/>
+      <g fill="#F7E7EE" fill-opacity="0.85">
+        <ellipse rx="4" ry="9.4" transform="rotate(0) translate(0 -11.4)"/>
+        <ellipse rx="4" ry="9.4" transform="rotate(72) translate(0 -11.4)"/>
+        <ellipse rx="4" ry="9.4" transform="rotate(144) translate(0 -11.4)"/>
+        <ellipse rx="4" ry="9.4" transform="rotate(216) translate(0 -11.4)"/>
+        <ellipse rx="4" ry="9.4" transform="rotate(288) translate(0 -11.4)"/>
       </g>
     </g>
     <!-- бутон -->
-    <g transform="translate(236 58) rotate(24)">
-      <path d="M0 0 C-9 -6 -10 -20 0 -26 C10 -20 9 -6 0 0 Z" fill="#F2D9E2"/>
-      <path d="M0 -24 C0 -16 0 -8 0 0" stroke-width="1.6"/>
+    <g transform="translate(238 60) rotate(24)">
+      <path d="M0 0 C-8 -6 -9 -18 0 -24 C9 -18 8 -6 0 0 Z" fill="#F2D9E2" fill-opacity="0.85"/>
+      <path d="M0 -22 C0 -15 0 -8 0 0" stroke-width="1.4"/>
     </g>
     <!-- листья -->
-    <path d="M118 226 C104 214 88 214 78 224 C88 236 106 236 118 226 Z" fill="#F7E7EE"/>
-    <path d="M132 186 C144 172 160 168 172 176 C164 190 146 194 132 186 Z" fill="#F2D9E2"/>
-    <path d="M204 118 C194 106 180 104 170 112 C178 124 194 126 204 118 Z" fill="#F7E7EE"/>
+    <path d="M118 226 C105 215 90 215 80 224 C90 235 107 235 118 226 Z" fill="#F7E7EE" fill-opacity="0.85"/>
+    <path d="M132 188 C144 175 159 171 171 179 C163 192 146 196 132 188 Z" fill="#F2D9E2" fill-opacity="0.85"/>
+    <path d="M204 120 C195 109 182 107 172 114 C180 126 195 128 204 120 Z" fill="#F7E7EE" fill-opacity="0.85"/>
     <!-- точки-акценты -->
-    <g fill="#C98BA2" stroke="none">
-      <circle cx="64" cy="262" r="3.4"/>
-      <circle cx="270" cy="140" r="3"/>
-      <circle cx="296" cy="96" r="2.2"/>
-      <circle cx="196" cy="172" r="2.6"/>
+    <g fill="#C98BA2" stroke="none" fill-opacity="0.6">
+      <circle cx="64" cy="262" r="3"/>
+      <circle cx="268" cy="142" r="2.6"/>
+      <circle cx="294" cy="98" r="2"/>
+      <circle cx="196" cy="172" r="2.2"/>
     </g>
   </g>
 </svg>
