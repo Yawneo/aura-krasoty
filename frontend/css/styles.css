@@ -51,7 +51,7 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image: url('../assets/img/decor/pattern.svg');
-  background-size: 240px 240px;
+  background-size: 380px 380px;
   /* узор — единое фиксированное полотно за контентом */
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;

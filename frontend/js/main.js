@@ -118,7 +118,7 @@
   window.photoSrc = function (photo) {
     const u = photo || 'assets/img/products/shampoo.svg';
     if (!u.startsWith('assets/')) return u;
-    return u + (u.includes('?') ? '&' : '?') + 'v=10';
+    return u + (u.includes('?') ? '&' : '?') + 'v=11';
   };
 
   /* ---------- Окно записи (кнопки «Записаться») ----------
