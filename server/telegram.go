@@ -29,6 +29,9 @@ func notifyTelegramBooking(cfg *config, a Appointment) {
 	if a.Service != "" {
 		b.WriteString(fmt.Sprintf("✂️ %s\n", a.Service))
 	}
+	if a.Master != "" && a.Master != "Любой мастер" {
+		b.WriteString(fmt.Sprintf("👩 Мастер: %s\n", a.Master))
+	}
 	if a.Date != "" || a.Time != "" {
 		b.WriteString(fmt.Sprintf("🗓 %s %s\n", a.Date, a.Time))
 	}

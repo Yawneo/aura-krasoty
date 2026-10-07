@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS appointments (
     customer_name TEXT NOT NULL,
     phone         TEXT NOT NULL,
     service       TEXT NOT NULL DEFAULT '',
+    master        TEXT NOT NULL DEFAULT '',
     date          TEXT NOT NULL DEFAULT '',
     time          TEXT NOT NULL DEFAULT '',
     comment       TEXT NOT NULL DEFAULT '',

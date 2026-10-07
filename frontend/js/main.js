@@ -135,7 +135,7 @@
   window.photoSrc = function (photo) {
     const u = photo || 'assets/img/products/shampoo.svg';
     if (!u.startsWith('assets/')) return u;
-    return u + (u.includes('?') ? '&' : '?') + 'v=3';
+    return u + (u.includes('?') ? '&' : '?') + 'v=4';
   };
 
   /* ---------- Окно записи (кнопки «Записаться») ----------
@@ -168,10 +168,20 @@
                     <option>Женская стрижка</option>
                     <option>Мужская стрижка</option>
                     <option>Окрашивание</option>
+                    <option>Мелирование</option>
+                    <option>Сложное окрашивание</option>
                     <option>Укладка / локоны</option>
                     <option>Кератин / ботокс</option>
-                    <option>Уход и лечение волос</option>
                     <option>Другое / консультация</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="bkMaster">Мастер</label>
+                  <select id="bkMaster">
+                    <option>Любой мастер</option>
+                    <option>Парикмахер-универсал</option>
+                    <option>Колорист</option>
+                    <option>Мастер укладок</option>
                   </select>
                 </div>
                 <div class="field">
@@ -184,7 +194,7 @@
                 </div>
                 <div class="field full">
                   <label for="bkComment">Комментарий</label>
-                  <textarea id="bkComment" rows="2" placeholder="Пожелания, длина волос, желаемый мастер…"></textarea>
+                  <textarea id="bkComment" rows="2" placeholder="Пожелания, длина волос…"></textarea>
                 </div>
               </div>
               <button type="submit" class="btn btn--primary" style="width:100%">Отправить запись 🌷</button>
@@ -236,6 +246,7 @@
         customer_name: document.getElementById('bkName').value.trim(),
         phone: document.getElementById('bkPhone').value.trim(),
         service: document.getElementById('bkService').value,
+        master: document.getElementById('bkMaster').value,
         date: document.getElementById('bkDate').value,
         time: document.getElementById('bkTime').value,
         comment: document.getElementById('bkComment').value.trim(),

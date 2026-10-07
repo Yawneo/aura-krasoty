@@ -28,14 +28,9 @@
         <a href="index.html" class="active">Главная</a>
         <a href="index.html#services">Услуги</a>
         <a href="index.html#works">Наши работы</a>
-        <a href="catalog.html">Каталог</a>
         <a href="index.html#contacts">Контакты</a>
       </nav>
       <div class="header__actions">
-        <button class="cart-btn" data-open-cart title="Корзина">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.5 13h-15L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
-          <span class="cart-btn__count">0</span>
-        </button>
         <button class="btn btn--primary btn--sm" data-book>Записаться</button>
         <button class="burger" aria-label="Меню"><span></span><span></span><span></span></button>
       </div>
@@ -45,7 +40,6 @@
     <a href="index.html">Главная</a>
     <a href="index.html#services">Услуги</a>
     <a href="index.html#works">Наши работы</a>
-    <a href="catalog.html">Каталог</a>
     <a href="index.html#contacts">Контакты</a>
     <a href="admin.html">Панель управления</a>
   </div>
@@ -62,7 +56,7 @@
         <p class="hero__slogan">Волосы, в которые влюбляются с первого взгляда. Стрижки, окрашивание и уход, после которых отражение в зеркале улыбается тебе.</p>
         <div class="hero__cta">
           <button class="btn btn--primary" data-book>Записаться онлайн</button>
-          <a class="btn btn--ghost" href="catalog.html">Смотреть каталог</a>
+          <a class="btn btn--ghost" href="#services">Смотреть услуги</a>
         </div>
         <div class="hero__stats">
           <div class="hero__stat"><b>4,3★</b><span>рейтинг на Яндекс.Картах</span></div>
@@ -99,7 +93,7 @@
           <div class="service-card__ico"><img data-ico="scissors" alt="Ножницы"></div>
           <h3>Женская стрижка</h3>
           <p>Подберём форму под лицо и тип волос, научим укладывать дома.</p>
-          <div class="service-card__price">от 900 ₽</div>
+          <div class="service-card__price">от 1 500 ₽</div>
         </article>
         <article class="service-card reveal">
           <div class="service-card__ico"><img data-ico="comb" alt="Расчёска"></div>
@@ -109,9 +103,9 @@
         </article>
         <article class="service-card reveal">
           <div class="service-card__ico"><img data-ico="sparkles" alt="Искры"></div>
-          <h3>Окрашивание</h3>
-          <p>Однотонное, в технике airtouch и шатуш, осветление и тонирование.</p>
-          <div class="service-card__price">от 7 000 ₽</div>
+          <h3>Окрашивание и мелирование</h3>
+          <p>Однотонное окрашивание, мелирование, растяжка цвета, выход из блонда.</p>
+          <div class="service-card__price">от 6 000 ₽</div>
         </article>
         <article class="service-card reveal">
           <div class="service-card__ico"><img data-ico="hair-dryer" alt="Фен"></div>
@@ -127,9 +121,9 @@
         </article>
         <article class="service-card reveal">
           <div class="service-card__ico"><img data-ico="lotus" alt="Лотос"></div>
-          <h3>Уход и лечение</h3>
-          <p>Восстанавливающие программы для волос и кожи головы.</p>
-          <div class="service-card__price">от 1 500 ₽</div>
+          <h3>Сложное окрашивание</h3>
+          <p>Осветление корней и тонирование, колорирование, сложные техники.</p>
+          <div class="service-card__price">от 8 000 ₽</div>
         </article>
       </div>
       <div style="text-align:center; margin-top:44px;" class="reveal">
@@ -159,8 +153,8 @@
         </div>
         <div class="benefit reveal">
           <img data-ico="gift" alt="">
-          <b>Подарочные наборы</b>
-          <span>косметика для волос в каталоге</span>
+          <b>Окрашивание любой сложности</b>
+          <span>мелирование, блонд, растяжка цвета</span>
         </div>
       </div>
     </div>
@@ -191,30 +185,15 @@
     </div>
   </section>
 
-  <!-- ======= Каталог-тизер ======= -->
-  <section class="section" id="shop">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">забери уход домой</span>
-        <h2>Каталог <span class="title-accent">красоты</span></h2>
-        <p>Профессиональная косметика, аксессуары и приборы — то, чем пользуются наши мастера.</p>
-      </div>
-      <div class="teaser-grid" id="teaserGrid"></div>
-      <div style="text-align:center" class="reveal">
-        <a class="btn btn--primary" href="catalog.html">Открыть весь каталог</a>
-      </div>
-    </div>
-  </section>
-
   <!-- ======= О салоне и контакты ======= -->
-  <section class="section section--soft" id="contacts">
+  <section class="section" id="contacts">
     <div class="container">
       <div class="about-grid">
         <div class="about-text reveal">
           <span class="eyebrow">о нас</span>
           <h2>Место, где вы отдыхаете <span class="title-accent">душой</span></h2>
           <p>«Аура красоты» — уютный салон в Северном жилом районе Сургута. Мы верим, что красота начинается с заботы: к каждой гостье — свой подход, чай и добрый разговор.</p>
-          <p>В салоне работают парикмахеры-универсалы и мастера маникюра, а на полках — проверенная косметика для домашнего ухода.</p>
+          <p>В салоне работают парикмахеры-универсалы: стрижки, окрашивание и уход за волосами — всё, чем мы занимаемся с любовью.</p>
           <span class="signature">ждём вас в гости ~ Аура красоты</span>
         </div>
         <div class="about-photos reveal">
@@ -280,7 +259,6 @@
           <ul>
             <li><a href="index.html#services">Услуги для волос</a></li>
             <li><a href="index.html#works">Наши работы</a></li>
-            <li><a href="catalog.html">Каталог</a></li>
             <li><a href="index.html#contacts">Контакты</a></li>
             <li><a href="admin.html">Панель управления</a></li>
           </ul>
@@ -302,35 +280,7 @@
     </div>
   </footer>
 
-  <script src="js/api.js?v=3"></script>
-  <script src="js/main.js?v=3"></script>
-  <script>
-    /* Тизер каталога: три товара со скидкой или первые по порядку */
-    document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        const [cats, items] = await Promise.all([AuraAPI.getCategories(), AuraAPI.getProducts()]);
-        const pick = [...items].sort((a, b) => (b.discount || 0) - (a.discount || 0)).slice(0, 3);
-        document.getElementById('teaserGrid').innerHTML = pick.map((p) => {
-          const cat = cats.find((c) => c.id === p.category_id);
-          const price = AuraAPI.finalPrice(p);
-          return `
-          <article class="product-card">
-            <div class="product-card__photo">
-              ${p.discount ? `<span class="product-card__discount">−${p.discount}%</span>` : ''}
-              <img src="${esc(photoSrc(p.photo))}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='assets/img/products/shampoo.svg'">
-            </div>
-            <div class="product-card__body">
-              <div class="product-card__cat">${esc(cat ? cat.name : '')}</div>
-              <h3>${esc(p.name)}</h3>
-              <div class="product-card__row">
-                <div class="price">${p.discount ? `<del>${AuraAPI.formatPrice(p.price)}</del>` : ''}${AuraAPI.formatPrice(price)}</div>
-                <a class="add-btn" href="catalog.html">В каталог</a>
-              </div>
-            </div>
-          </article>`;
-        }).join('');
-      } catch (e) { console.error(e); }
-    });
-  </script>
+  <script src="js/api.js?v=4"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

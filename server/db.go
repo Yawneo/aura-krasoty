@@ -547,6 +547,7 @@ type Appointment struct {
 	CustomerName string `json:"customer_name"`
 	Phone        string `json:"phone"`
 	Service      string `json:"service"`
+	Master       string `json:"master"`
 	Date         string `json:"date"`
 	Time         string `json:"time"`
 	Comment      string `json:"comment"`
@@ -568,9 +569,9 @@ func createAppointment(pool *pgxpool.Pool, cfg *config) gin.HandlerFunc {
 		var id int
 		var createdAt time.Time
 		err := pool.QueryRow(context.Background(),
-			`INSERT INTO appointments(customer_name, phone, service, date, time, comment)
-			 VALUES ($1,$2,$3,$4,$5,$6) RETURNING id, created_at`,
-			a.CustomerName, a.Phone, a.Service, a.Date, a.Time, a.Comment).Scan(&id, &createdAt)
+			`INSERT INTO appointments(customer_name, phone, service, master, date, time, comment)
+			 VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING id, created_at`,
+			a.CustomerName, a.Phone, a.Service, a.Master, a.Date, a.Time, a.Comment).Scan(&id, &createdAt)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return

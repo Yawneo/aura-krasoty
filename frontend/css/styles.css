@@ -452,10 +452,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .contacts-grid .contact-card {
   height: 100%;
   margin: 0;
-  display: flex;
-  flex-direction: column;
 }
-.contacts-grid .contact-card .socials { margin-top: auto; }
 .contacts-grid .map-wrap {
   margin: 0;
   align-self: stretch;    /* карта всегда точно по высоте карточки контактов */
