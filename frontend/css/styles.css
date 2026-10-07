@@ -51,7 +51,7 @@ body {
   color: var(--text);
   background-color: var(--bg);
   background-image: url('../assets/img/decor/pattern.svg');
-  background-size: 260px 260px;
+  background-size: 240px 240px;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -68,7 +68,13 @@ input, select, textarea { font-family: inherit; font-size: 15px; color: var(--te
 h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15; color: var(--text); }
 
 .section { padding: 88px 0; position: relative; }
-.section--soft { background: linear-gradient(180deg, var(--bg) 0%, var(--pink-50) 50%, var(--bg) 100%); }
+/* полупрозрачная заливка — цветочный узор фона просвечивает в каждой секции */
+.section--soft {
+  background: linear-gradient(180deg,
+    rgba(255, 252, 253, 0) 0%,
+    rgba(249, 240, 243, 0.72) 50%,
+    rgba(255, 252, 253, 0) 100%);
+}
 
 .section-head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
 .section-head .eyebrow { margin-bottom: 10px; }
@@ -612,7 +618,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 
 /* ---------- Футер ---------- */
 
-.footer { background: linear-gradient(180deg, var(--pink-50), var(--pink-100)); padding: 56px 0 30px; margin-top: 60px; position: relative; overflow: hidden; }
+.footer { background: linear-gradient(180deg, rgba(249, 240, 243, 0.9), rgba(242, 222, 230, 0.94)); padding: 56px 0 30px; margin-top: 60px; position: relative; overflow: hidden; }
 .footer__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; position: relative; }
 .footer h4 { font-family: var(--font-serif); font-size: 20px; margin-bottom: 14px; }
 .footer p, .footer a, .footer li { font-size: 14px; color: var(--text-muted); }

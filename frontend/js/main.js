@@ -1,56 +1,11 @@
 /* ============================================================
-   main.js — общая логика всех страниц «Аура красоты»:
-   шапка, мобильное меню, корзина (хранилище + счётчик),
+   main.js — общая логика страниц «Аура красоты»:
+   шапка, мобильное меню, окно записи, иконки, анимации,
    появление секций при прокрутке, тосты.
    ============================================================ */
 
 (function () {
   'use strict';
-
-  /* ---------- Корзина (localStorage) ---------- */
-
-  const CART_KEY = 'aura_cart_v1';
-
-  window.AuraCart = {
-    get() {
-      try { return JSON.parse(localStorage.getItem(CART_KEY)) || {}; }
-      catch (_) { return {}; }
-    },
-    set(cart) {
-      localStorage.setItem(CART_KEY, JSON.stringify(cart));
-      updateCartBadge();
-    },
-    count() {
-      return Object.values(this.get()).reduce((s, q) => s + q, 0);
-    },
-    add(id, qty = 1) {
-      const cart = this.get();
-      cart[id] = (cart[id] || 0) + qty;
-      this.set(cart);
-    },
-    setQty(id, qty) {
-      const cart = this.get();
-      if (qty <= 0) delete cart[id]; else cart[id] = qty;
-      this.set(cart);
-    },
-    remove(id) {
-      const cart = this.get();
-      delete cart[id];
-      this.set(cart);
-    },
-    clear() {
-      this.set({});
-    },
-  };
-
-  function updateCartBadge() {
-    document.querySelectorAll('.cart-btn__count').forEach((el) => {
-      const n = window.AuraCart.count();
-      el.textContent = n > 99 ? '99+' : n;
-      el.classList.toggle('visible', n > 0);
-    });
-  }
-  window.updateCartBadge = updateCartBadge;
 
   /* ---------- Шапка и мобильное меню ---------- */
 
@@ -74,7 +29,6 @@
       });
     }
 
-    updateCartBadge();
     initReveal();
     initIcons();
     initBooking();
@@ -164,7 +118,7 @@
   window.photoSrc = function (photo) {
     const u = photo || 'assets/img/products/shampoo.svg';
     if (!u.startsWith('assets/')) return u;
-    return u + (u.includes('?') ? '&' : '?') + 'v=6';
+    return u + (u.includes('?') ? '&' : '?') + 'v=7';
   };
 
   /* ---------- Окно записи (кнопки «Записаться») ----------
