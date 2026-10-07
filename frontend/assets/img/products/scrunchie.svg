@@ -1,22 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
-  <circle cx="240" cy="240" r="200" fill="#F9F0F3"/>
-  <ellipse cx="240" cy="396" rx="120" ry="16" fill="#F2D9E2" opacity="0.55"/>
-  <g stroke="#8A5066" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="180" cy="240" r="64" fill="#F7E7EE"/>
-    <circle cx="180" cy="240" r="26" fill="#F9F0F3"/>
-    <g stroke-width="5" opacity="0.8" fill="none">
-      <path d="M180 176 c14 2 24 10 28 22"/>
-      <path d="M242 226 c-2 16-12 28-26 32"/>
-      <path d="M180 304 c-14-2-24-10-28-22"/>
-      <path d="M118 254 c2-16 12-28 26-32"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFF3"/><stop offset="1" stop-color="#F3DDE7"/></linearGradient>
+    <radialGradient id="ring1" cx="0.35" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#FDF3F7"/><stop offset="1" stop-color="#D9A1B6"/>
+    </radialGradient>
+    <radialGradient id="ring2" cx="0.35" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#F3DDE7"/><stop offset="1" stop-color="#B06A85"/>
+    </radialGradient>
+  </defs>
+  <circle cx="240" cy="240" r="196" fill="url(#bg)"/>
+  <ellipse cx="240" cy="402" rx="124" ry="17" fill="#D9A1B6" opacity="0.35"/>
+  <g stroke="#7A3F56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <!-- большое кольцо-жгут -->
+    <circle cx="186" cy="230" r="82" fill="url(#ring1)"/>
+    <circle cx="186" cy="230" r="36" fill="#FBEFF3"/>
+    <g stroke-width="5" opacity="0.75" fill="none">
+      <path d="M186 148 c16 3 28 12 34 26"/>
+      <path d="M268 220 c-2 18-13 31-30 37"/>
+      <path d="M186 312 c-16-3-28-12-34-26"/>
+      <path d="M104 240 c2-18 13-31 30-37"/>
     </g>
-    <circle cx="312" cy="268" r="52" fill="#D9A1B6"/>
-    <circle cx="312" cy="268" r="20" fill="#F9F0F3"/>
-    <g stroke-width="5" opacity="0.8" fill="none">
-      <path d="M312 216 c12 2 20 8 24 18"/>
-      <path d="M362 256 c-2 14-10 24-22 28"/>
-      <path d="M312 320 c-12-2-20-8-24-18"/>
-      <path d="M262 280 c2-14 10-24 22-28"/>
+    <!-- малое кольцо -->
+    <circle cx="318" cy="300" r="58" fill="url(#ring2)"/>
+    <circle cx="318" cy="300" r="24" fill="#FBEFF3"/>
+    <g stroke-width="5" opacity="0.75" fill="none">
+      <path d="M318 242 c12 2 20 8 24 19"/>
+      <path d="M376 290 c-2 13-10 23-22 27"/>
+      <path d="M318 358 c-12-2-20-8-24-19"/>
+      <path d="M260 310 c2-13 10-23 22-27"/>
     </g>
   </g>
 </svg>

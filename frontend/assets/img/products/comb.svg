@@ -1,13 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
-  <circle cx="240" cy="240" r="200" fill="#F9F0F3"/>
-  <ellipse cx="240" cy="396" rx="120" ry="16" fill="#F2D9E2" opacity="0.55"/>
-  <g stroke="#8A5066" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <g transform="rotate(-18 240 240)">
-      <path d="M96 210 h150 c18 0 30 12 30 30 s-12 30-30 30 H96 Z" fill="#F7E7EE"/>
-      <rect x="260" y="196" width="120" height="88" rx="26" fill="#D9A1B6"/>
-      <path d="M126 240 h96" stroke-width="8"/>
-      <path d="M116 210 v60 M140 210 v60 M164 210 v60 M188 210 v60 M212 210 v60 M236 210 v60" stroke-width="5" opacity="0.85"/>
-      <circle cx="352" cy="240" r="14" fill="#FFFFFF" stroke="none"/>
-    </g>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFF3"/><stop offset="1" stop-color="#F3DDE7"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF3F7"/><stop offset="1" stop-color="#E3BCCB"/></linearGradient>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C98BA2"/><stop offset="1" stop-color="#8A5066"/></linearGradient>
+  </defs>
+  <circle cx="240" cy="240" r="196" fill="url(#bg)"/>
+  <ellipse cx="240" cy="398" rx="128" ry="17" fill="#D9A1B6" opacity="0.35"/>
+  <g stroke="#7A3F56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-14 240 240)">
+    <!-- ручка -->
+    <path d="M304 214 h96 c16 0 26 12 26 26 s-10 26-26 26 h-96 Z" fill="url(#handle)"/>
+    <circle cx="398" cy="240" r="9" fill="#FDF3F7" stroke="none"/>
+    <!-- основание с зубьями -->
+    <path d="M100 196 h204 v88 H100 c-14 0-24-10-24-24 v-40 c0-14 10-24 24-24 Z" fill="url(#body)"/>
+    <path d="M112 196 v88 M136 196 v88 M160 196 v88 M184 196 v88 M208 196 v88 M232 196 v88 M256 196 v88 M280 196 v88" stroke-width="6" opacity="0.9"/>
   </g>
 </svg>

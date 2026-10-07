@@ -1,12 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
-  <circle cx="240" cy="240" r="200" fill="#F9F0F3"/>
-  <ellipse cx="240" cy="396" rx="110" ry="16" fill="#F2D9E2" opacity="0.55"/>
-  <g stroke="#8A5066" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="196" y="300" width="88" height="66" rx="14" fill="#D9A1B6"/>
-    <path d="M204 300 v-96 c0-26 16-40 36-40 s36 14 36 40 v96" fill="#F7E7EE"/>
-    <rect x="208" y="196" width="64" height="84" rx="10" fill="#FFFFFF" stroke="none"/>
-    <path d="M222 222 h36 M222 244 h36 M222 266 h22" stroke-width="7"/>
-    <path d="M240 130 c0-22 10-38 10-38" stroke-width="6" fill="none" opacity="0.6"/>
-    <circle cx="252" cy="76" r="6" fill="#C98BA2" stroke="none"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFF3"/><stop offset="1" stop-color="#F3DDE7"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF3F7"/><stop offset="1" stop-color="#E3BCCB"/></linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98BA2"/><stop offset="1" stop-color="#7A3F56"/></linearGradient>
+  </defs>
+  <circle cx="240" cy="240" r="196" fill="url(#bg)"/>
+  <ellipse cx="240" cy="402" rx="104" ry="17" fill="#D9A1B6" opacity="0.35"/>
+  <g stroke="#7A3F56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="204" y="292" width="72" height="76" rx="16" fill="url(#cap)"/>
+    <path d="M210 292 v-100 c0-24 14-38 30-38 s30 14 30 38 v100" fill="url(#body)"/>
+    <rect x="212" y="192" width="56" height="82" rx="10" fill="#FFFFFF" stroke="#B06A85" stroke-width="4"/>
+    <path d="M226 218 h28 M226 240 h28 M226 260 h16" stroke="#8A5066" stroke-width="6"/>
+    <path d="M244 154 c2-22 10-36 10-36" fill="none" stroke-width="6"/>
+    <circle cx="256" cy="104" r="8" fill="#C98BA2"/>
+    <path d="M216 200 c-3 4-4 7-4 11 -1 24-1 50 0 76 0 7 9 7 9 0 -1-26-1-52 0-76 0-5 -2-8 -5-11 Z" fill="#FFFFFF" opacity="0.5" stroke="none"/>
   </g>
 </svg>

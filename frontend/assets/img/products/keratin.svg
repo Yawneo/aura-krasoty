@@ -1,11 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
-  <circle cx="240" cy="240" r="200" fill="#F9F0F3"/>
-  <ellipse cx="240" cy="396" rx="120" ry="16" fill="#F2D9E2" opacity="0.55"/>
-  <g stroke="#8A5066" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M158 296 c-14-58 10-118 40-150 8-9 22-2 20 10 -6 34 2 62 22 88 -2-30 8-56 28-76 8-8 21-1 19 10 -4 24 2 46 16 66 12 18 14 40 4 58 -14 26-44 40-76 36 -34-4-64-20-73-42 Z" fill="#F7E7EE"/>
-    <path d="M198 316 c26 10 58 10 82-2" stroke-width="6" fill="none" opacity="0.7"/>
-    <path d="M240 300 c0-24 10-44 26-56" stroke-width="6" fill="none" opacity="0.7"/>
-    <circle cx="298" cy="150" r="5" fill="#C98BA2" stroke="none"/>
-    <circle cx="316" cy="176" r="4" fill="#C98BA2" stroke="none"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFF3"/><stop offset="1" stop-color="#F3DDE7"/></linearGradient>
+    <linearGradient id="lock" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E3BCCB"/><stop offset="1" stop-color="#C98BA2"/></linearGradient>
+    <linearGradient id="tube" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF3F7"/><stop offset="1" stop-color="#E3BCCB"/></linearGradient>
+  </defs>
+  <circle cx="240" cy="240" r="196" fill="url(#bg)"/>
+  <ellipse cx="240" cy="402" rx="122" ry="17" fill="#D9A1B6" opacity="0.35"/>
+  <g stroke="#7A3F56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 300 c-14-56 8-114 38-146 8-9 22-3 20 9 -6 32 2 60 20 84 -2-28 8-54 26-72 8-8 21-2 19 9 -4 24 2 44 16 62 12 16 14 38 4 56 -14 24-42 38-72 34 -32-4-62-18-71-36 Z" fill="url(#lock)"/>
+    <path d="M188 320 c24 10 56 10 78-2" stroke-width="6" fill="none" opacity="0.7"/>
+    <path d="M232 306 c0-22 10-42 24-52" stroke-width="6" fill="none" opacity="0.7"/>
+    <rect x="292" y="150" width="86" height="188" rx="26" fill="url(#tube)"/>
+    <rect x="306" y="188" width="58" height="72" rx="10" fill="#FFFFFF" stroke="#B06A85" stroke-width="4"/>
+    <path d="M318 210 h34 M318 230 h34 M318 248 h22" stroke="#8A5066" stroke-width="6"/>
+    <rect x="312" y="124" width="46" height="30" rx="8" fill="#8A5066"/>
+    <path d="M304 176 c-3 4-4 8-4 12 -1 40-1 80 0 120 0 7 9 7 9 0 -1-40-1-80 0-120 0-5 -2-9 -5-12 Z" fill="#FFFFFF" opacity="0.5" stroke="none"/>
+    <circle cx="304" cy="118" r="5" fill="#D9A1B6" stroke="none"/>
+    <circle cx="322" cy="106" r="4" fill="#D9A1B6" stroke="none"/>
   </g>
 </svg>

@@ -102,7 +102,7 @@
       const cat = catById(p.category_id);
       return `
       <tr>
-        <td><img class="thumb" src="${esc(p.photo)}" alt="" onerror="this.style.visibility='hidden'"></td>
+        <td><img class="thumb" src="${esc(photoSrc(p.photo))}" alt="" onerror="this.style.visibility='hidden'"></td>
         <td><b>${esc(p.name)}</b><br><small style="color:var(--text-muted)">${esc(p.description || '')}</small></td>
         <td>${esc(cat ? cat.name : '—')}</td>
         <td>${AuraAPI.formatPrice(p.price)}${p.discount ? `<br><small style="color:var(--rose-deep)">скидка −${p.discount}% → ${AuraAPI.formatPrice(priceOf(p))}</small>` : ''}</td>
@@ -200,7 +200,7 @@
         <div class="status-cards">
           ${items.map((p) => `
             <div class="status-card ${p.active ? '' : 'is-hidden'}">
-              <img src="${esc(p.photo)}" alt="" onerror="this.style.visibility='hidden'">
+              <img src="${esc(photoSrc(p.photo))}" alt="" onerror="this.style.visibility='hidden'">
               <div class="status-card__info">
                 <b>${esc(p.name)}</b>
                 <span>${AuraAPI.formatPrice(priceOf(p))} · ${p.active ? 'показывается' : 'скрыт'}</span>

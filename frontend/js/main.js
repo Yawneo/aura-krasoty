@@ -131,6 +131,13 @@
   window.applyPhoneMask = applyPhoneMask;
   window.phoneDigits = (v) => String(v || '').replace(/\D/g, '');
 
+  /* Путь к картинке товара с версией — чтобы браузер не показывал старые из кэша */
+  window.photoSrc = function (photo) {
+    const u = photo || 'assets/img/products/shampoo.svg';
+    if (!u.startsWith('assets/')) return u;
+    return u + (u.includes('?') ? '&' : '?') + 'v=3';
+  };
+
   /* ---------- Окно записи (кнопки «Записаться») ----------
      Разметка добавляется на страницу автоматически,
      отправка — в API (/api/appointments) или в localStorage. */

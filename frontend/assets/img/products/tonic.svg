@@ -1,12 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
-  <circle cx="240" cy="240" r="200" fill="#F9F0F3"/>
-  <ellipse cx="240" cy="396" rx="110" ry="16" fill="#F2D9E2" opacity="0.55"/>
-  <g stroke="#8A5066" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="180" y="132" width="120" height="220" rx="40" fill="#F7E7EE"/>
-    <rect x="196" y="196" width="88" height="92" rx="12" fill="#FFFFFF" stroke="none"/>
-    <path d="M214 222 h52 M214 244 h52 M214 266 h34" stroke-width="7"/>
-    <path d="M180 176 c-18-10-18-34 0-44 6-16 28-20 38-6" fill="none"/>
-    <path d="M300 176 c18-10 18-34 0-44 -6-16-28-20-38-6" fill="none"/>
-    <circle cx="240" cy="112" r="14" fill="#D9A1B6"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFF3"/><stop offset="1" stop-color="#F3DDE7"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF3F7"/><stop offset="1" stop-color="#E3BCCB"/></linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98BA2"/><stop offset="1" stop-color="#8A5066"/></linearGradient>
+  </defs>
+  <circle cx="240" cy="240" r="196" fill="url(#bg)"/>
+  <ellipse cx="240" cy="402" rx="108" ry="17" fill="#D9A1B6" opacity="0.35"/>
+  <g stroke="#7A3F56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="198" y="112" width="84" height="34" rx="10" fill="url(#cap)"/>
+    <path d="M206 146 v-22 c0-8 6-14 14-14 h40 c8 0 14 6 14 14 v22" fill="none" opacity="0.6"/>
+    <path d="M182 158 h116 c10 0 18 8 18 18 v196 c0 16-13 28-29 28 H193 c-16 0-29-12-29-28 V176 c0-10 8-18 18-18 Z" fill="url(#body)"/>
+    <rect x="186" y="226" width="108" height="102" rx="12" fill="#FFFFFF" stroke="#B06A85" stroke-width="4"/>
+    <path d="M204 254 h72 M204 280 h72 M204 304 h42" stroke="#8A5066" stroke-width="7"/>
+    <path d="M192 180 c-4 6-6 10-6 16 -2 34-2 72 0 110 0 8 10 8 10 0 -2-36-2-72 0-106 0-8 0-14 -4-20 Z" fill="#FFFFFF" opacity="0.5" stroke="none"/>
+    <circle cx="240" cy="358" r="8" fill="#D9A1B6" stroke="none"/>
   </g>
 </svg>

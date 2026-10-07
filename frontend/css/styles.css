@@ -458,8 +458,8 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .contacts-grid .contact-card .socials { margin-top: auto; }
 .contacts-grid .map-wrap {
   margin: 0;
-  align-self: start;
-  aspect-ratio: 1 / 1;   /* квадратная карта, как в макете */
+  align-self: stretch;    /* карта всегда точно по высоте карточки контактов */
+  min-height: 430px;
 }
 .contacts-grid .map-wrap iframe {
   position: absolute;
@@ -819,5 +819,5 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 
 @media (max-width: 700px) {
   .contacts-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 36px; }
-  .contacts-grid .map-wrap { aspect-ratio: auto; height: 340px; }
+  .contacts-grid .map-wrap { height: 340px; min-height: 340px; }
 }

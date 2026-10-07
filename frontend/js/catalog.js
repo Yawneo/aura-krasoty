@@ -81,7 +81,7 @@
       <article class="product-card reveal visible" data-id="${p.id}">
         <div class="product-card__photo">
           ${p.discount ? `<span class="product-card__discount">−${p.discount}%</span>` : ''}
-          <img src="${esc(p.photo)}" alt="${esc(p.name)}" loading="lazy"
+          <img src="${esc(photoSrc(p.photo))}" alt="${esc(p.name)}" loading="lazy"
                onerror="this.onerror=null;this.src='assets/img/products/shampoo.svg'">
         </div>
         <div class="product-card__body">
@@ -162,7 +162,7 @@
 
     box.innerHTML = items.map(({ p, qty, sum }) => `
       <div class="cart-item">
-        <img src="${esc(p.photo)}" alt="${esc(p.name)}"
+        <img src="${esc(photoSrc(p.photo))}" alt="${esc(p.name)}"
              onerror="this.onerror=null;this.src='assets/img/products/shampoo.svg'">
         <div>
           <div class="cart-item__name">${esc(p.name)}</div>

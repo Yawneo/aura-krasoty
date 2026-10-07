@@ -1,17 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480">
-  <circle cx="240" cy="240" r="200" fill="#F9F0F3"/>
-  <ellipse cx="240" cy="396" rx="120" ry="16" fill="#F2D9E2" opacity="0.55"/>
-  <g stroke="#8A5066" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
-    <g transform="rotate(18 240 240)">
-      <rect x="90" y="170" width="150" height="46" rx="22" fill="#D9A1B6"/>
-      <rect x="230" y="178" width="120" height="30" rx="12" fill="#F7E7EE"/>
-      <path d="M350 170 c26 4 42 20 42 38 s-16 34-42 38 l-30 0 0-76 Z" fill="#D9A1B6"/>
-      <rect x="104" y="216" width="130" height="26" rx="12" fill="#F7E7EE"/>
-      <path d="M120 242 c-20 30-12 66 18 82 16 8 34 6 46-4" fill="none"/>
-      <circle cx="196" cy="240" r="8" fill="#FFFFFF" stroke="none"/>
-    </g>
-    <g transform="translate(352 300)">
-      <path d="M0 0 c3-10 14-14 22-8 8-6 19-2 22 8" stroke-width="5" fill="none"/>
-    </g>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBEFF3"/><stop offset="1" stop-color="#F3DDE7"/></linearGradient>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDF3F7"/><stop offset="1" stop-color="#E3BCCB"/></linearGradient>
+    <linearGradient id="dark" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C98BA2"/><stop offset="1" stop-color="#7A3F56"/></linearGradient>
+  </defs>
+  <circle cx="240" cy="240" r="196" fill="url(#bg)"/>
+  <ellipse cx="240" cy="398" rx="124" ry="17" fill="#D9A1B6" opacity="0.35"/>
+  <g stroke="#7A3F56" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" transform="rotate(14 240 240)">
+    <!-- верхняя створка -->
+    <path d="M104 186 h168 c40 0 62 18 66 40 l-2 14 H104 c-14 0-22-9-22-22 v-10 c0-13 8-22 22-22 Z" fill="url(#body)"/>
+    <!-- нижняя створка/жало -->
+    <path d="M92 244 h240 c26 0 44 10 46 22 l2 12 H92 c-12 0-20-8-20-17 0-9 8-17 20-17 Z" fill="url(#dark)"/>
+    <!-- шарнир -->
+    <circle cx="348" cy="222" r="13" fill="#D9A1B6"/>
+    <!-- кнопка нагрева -->
+    <path d="M230 214 h52" stroke="#FFFFFF" stroke-width="9"/>
+    <path d="M120 216 h56" stroke-width="6" opacity="0.6"/>
+    <!-- шнур -->
+    <path d="M382 262 c22 8 34 26 30 48" fill="none" stroke-width="6"/>
+    <!-- блик -->
+    <path d="M116 196 c-4 3-6 6-6 10 0 4 6 5 7 1 1-4 3-7 6-9 3-3-3-5-7-2 Z" fill="#FFFFFF" opacity="0.6" stroke="none"/>
   </g>
 </svg>
