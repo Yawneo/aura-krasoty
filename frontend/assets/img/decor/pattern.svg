@@ -1,29 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
-  <!-- Тонкий цветочный узор для фона страницы, очень бледный -->
-  <g stroke="#7A3F56" stroke-width="1.4" fill="none" opacity="0.07" stroke-linecap="round">
-    <g transform="translate(56 60)">
-      <circle r="5"/>
-      <ellipse rx="4" ry="11" transform="rotate(0) translate(0 -15)"/>
-      <ellipse rx="4" ry="11" transform="rotate(72) translate(0 -15)"/>
-      <ellipse rx="4" ry="11" transform="rotate(144) translate(0 -15)"/>
-      <ellipse rx="4" ry="11" transform="rotate(216) translate(0 -15)"/>
-      <ellipse rx="4" ry="11" transform="rotate(288) translate(0 -15)"/>
-      <path d="M0 16 C-2 26 2 34 0 44"/>
-      <path d="M-1 28 C-7 24 -11 25 -14 30 C-9 34 -4 33 -1 28 Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <!-- Бесшовный цветочный узор: все элементы не касаются краёв тайла,
+       поэтому при повторении не видно стыков. Тон сливы, сольётся с фоном. -->
+  <g stroke="#7A3F56" stroke-width="1.6" fill="none" opacity="0.065" stroke-linecap="round" stroke-linejoin="round">
+    <!-- веточка с листьями (верх-лево) -->
+    <path d="M34 78 C46 62 62 50 82 44"/>
+    <path d="M50 64 C44 54 46 46 54 40 C60 48 58 58 50 64 Z" fill="#7A3F56" opacity="0.6"/>
+    <path d="M66 52 C64 42 68 34 76 30 C80 38 76 48 66 52 Z" fill="#7A3F56" opacity="0.6"/>
+    <circle cx="84" cy="42" r="2.4" fill="#7A3F56"/>
+    <!-- цветок пятилепестковый (верх-право) -->
+    <g transform="translate(176 66)">
+      <circle r="4.6"/>
+      <ellipse rx="4.2" ry="11" transform="rotate(0) translate(0 -14.5)"/>
+      <ellipse rx="4.2" ry="11" transform="rotate(72) translate(0 -14.5)"/>
+      <ellipse rx="4.2" ry="11" transform="rotate(144) translate(0 -14.5)"/>
+      <ellipse rx="4.2" ry="11" transform="rotate(216) translate(0 -14.5)"/>
+      <ellipse rx="4.2" ry="11" transform="rotate(288) translate(0 -14.5)"/>
     </g>
-    <g transform="translate(196 178) rotate(20)">
-      <circle r="4"/>
-      <ellipse rx="3.4" ry="9" transform="rotate(0) translate(0 -12)"/>
-      <ellipse rx="3.4" ry="9" transform="rotate(72) translate(0 -12)"/>
-      <ellipse rx="3.4" ry="9" transform="rotate(144) translate(0 -12)"/>
-      <ellipse rx="3.4" ry="9" transform="rotate(216) translate(0 -12)"/>
-      <ellipse rx="3.4" ry="9" transform="rotate(288) translate(0 -12)"/>
+    <!-- точки-бусины -->
+    <circle cx="120" cy="34" r="2" fill="#7A3F56"/>
+    <circle cx="210" cy="120" r="2.4" fill="#7A3F56"/>
+    <circle cx="36" cy="150" r="2" fill="#7A3F56"/>
+    <!-- маленький четырёхлепестковый цветок (низ-лево) -->
+    <g transform="translate(84 166)">
+      <circle r="3.2" fill="#7A3F56"/>
+      <ellipse rx="3.4" ry="8.4" transform="rotate(45) translate(0 -10.6)"/>
+      <ellipse rx="3.4" ry="8.4" transform="rotate(135) translate(0 -10.6)"/>
+      <ellipse rx="3.4" ry="8.4" transform="rotate(225) translate(0 -10.6)"/>
+      <ellipse rx="3.4" ry="8.4" transform="rotate(315) translate(0 -10.6)"/>
     </g>
-    <circle cx="150" cy="30" r="2.4" fill="#7A3F56"/>
-    <circle cx="230" cy="86" r="1.8" fill="#7A3F56"/>
-    <circle cx="30" cy="196" r="2" fill="#7A3F56"/>
-    <circle cx="110" cy="240" r="1.6" fill="#7A3F56"/>
-    <path d="M96 130 C104 122 116 120 124 126 C118 136 104 138 96 130 Z"/>
-    <path d="M180 44 C172 36 160 34 152 40 C158 50 172 52 180 44 Z"/>
+    <!-- травинка с бутоном (низ-право) -->
+    <path d="M156 196 C164 180 176 168 192 162"/>
+    <path d="M166 184 C160 176 161 168 168 162 C174 168 172 178 166 184 Z" fill="#7A3F56" opacity="0.55"/>
+    <path d="M192 162 C194 152 200 146 208 144 C210 152 204 160 192 162 Z" fill="#7A3F56" opacity="0.55"/>
+    <circle cx="196" cy="158" r="2.2" fill="#7A3F56"/>
   </g>
 </svg>

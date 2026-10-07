@@ -558,6 +558,15 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
 .socials a:hover { background: var(--pink-200); transform: translateY(-2px); }
 .socials img { width: 18px; height: 18px; }
 
+/* в карточке контактов ВК и ТГ вместе занимают всю ширину, как кнопка записи */
+.contacts-grid .socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
+}
+.contacts-grid .socials a { width: 100%; justify-content: center; padding: 12px 10px; }
+
 /* контакты слева + карта-квадрат справа */
 .contacts-grid {
   display: grid;

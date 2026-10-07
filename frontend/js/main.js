@@ -164,7 +164,7 @@
   window.photoSrc = function (photo) {
     const u = photo || 'assets/img/products/shampoo.svg';
     if (!u.startsWith('assets/')) return u;
-    return u + (u.includes('?') ? '&' : '?') + 'v=5';
+    return u + (u.includes('?') ? '&' : '?') + 'v=6';
   };
 
   /* ---------- Окно записи (кнопки «Записаться») ----------
@@ -295,21 +295,15 @@
     });
   }
 
-  /* ---------- Иконки Icons8 ----------
-     Подгружаются после полной загрузки страницы, чтобы внешние
-     запросы не задерживали открытие сайта. При недоступности
-     icons8 иконка просто скрывается — вёрстка не ломается. */
+  /* ---------- Иконки ----------
+     Лежат локально в assets/icons (скачаны с Icons8, тон сайта).
+     Локальные файлы не зависят от сети — ничего не «пропадает».
+     При ошибке иконка просто скрывается, вёрстка не ломается. */
   function initIcons() {
-    const apply = () => {
-      document.querySelectorAll('img[data-ico]').forEach((el) => {
-        el.addEventListener('error', () => { el.style.visibility = 'hidden'; }, { once: true });
-        el.src = `https://img.icons8.com/ios/100/7a3f56/${el.dataset.ico}.png`;
-        // если картинка уже успела загрузиться с ошибкой до установки обработчика
-        if (el.complete && el.naturalWidth === 0) el.style.visibility = 'hidden';
-      });
-    };
-    if (document.readyState === 'complete') setTimeout(apply, 0);
-    else window.addEventListener('load', () => setTimeout(apply, 0));
+    document.querySelectorAll('img[data-ico]').forEach((el) => {
+      el.addEventListener('error', () => { el.style.visibility = 'hidden'; }, { once: true });
+      el.src = `assets/icons/${el.dataset.ico}.png`;
+    });
   }
 
   /* ---------- Появление блоков при прокрутке (каскадом внутри секции) ---------- */
