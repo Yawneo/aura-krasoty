@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Вариант 4: «Веер-аура» — пять лепестков-капель раскрываются веером -->
+  <g transform="translate(32 40)" stroke="#7A3F56" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    <path id="d1" d="M0 0 C-3.4 -5.4 -3.2 -12.6 0 -16.4 C3.2 -12.6 3.4 -5.4 0 0 Z" fill="#F7E7EE" transform="rotate(-56)"/>
+    <use href="#d1" transform="rotate(-28)" fill="#F2D9E2"/>
+    <use href="#d1" transform="rotate(0)"  fill="#FDF6F9"/>
+    <use href="#d1" transform="rotate(28)" fill="#F2D9E2"/>
+    <use href="#d1" transform="rotate(56)" fill="#F7E7EE"/>
+    <circle r="3.6" fill="#D9A1B6"/>
+  </g>
+  <path d="M32 40 c0 6 -1 10 -4 15" stroke="#7A3F56" stroke-width="2" stroke-linecap="round" fill="none"/>
+</svg>

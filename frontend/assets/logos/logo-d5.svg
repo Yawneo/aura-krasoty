@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Г · 5: «Ножницы и аура» — ножницы плюс дуги света (название) -->
+  <g stroke="#7A3F56" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M27 37 L20 25"/>
+    <path d="M27 37 L34 25"/>
+    <path d="M27 37 L24.5 40.5"/>
+    <path d="M27 37 L29.5 40.5"/>
+    <circle cx="22.6" cy="44" r="3.4"/>
+    <circle cx="31.4" cy="44" r="3.4"/>
+  </g>
+  <circle cx="27" cy="37" r="1.9" fill="#7A3F56"/>
+  <g stroke="#C98BA2" fill="none" stroke-linecap="round">
+    <path d="M37 24.5 A11 11 0 0 1 37 40" stroke-width="3.4"/>
+    <path d="M43 18.5 A19 19 0 0 1 43 46" stroke-width="3.4" opacity="0.55"/>
+  </g>
+</svg>

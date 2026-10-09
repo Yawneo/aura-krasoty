@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Г · 3: «Прядь в круге» — тонкий круг-аура, внутри струящаяся прядь -->
+  <circle cx="32" cy="32" r="26.5" stroke="#C98BA2" stroke-width="1.8" opacity="0.6"/>
+  <path d="M25 50 C38 45 27 35 39 29.5 C46 26.5 46.5 18 40 14"
+        stroke="#7A3F56" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M29.5 49.5 C36 46 32.5 39.5 39.5 35.5" stroke="#7A3F56" stroke-width="2"
+        fill="none" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="40.5" cy="12.5" r="2.6" fill="#C98BA2"/>
+</svg>

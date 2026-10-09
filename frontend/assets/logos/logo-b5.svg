@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Б · 5: «А + ромб» — плотная геометричная А с искрой. Luxury letter mark. -->
+  <path d="M19 53 L32 10 L45 53" stroke="#7A3F56" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M23.5 39.5 h17" stroke="#7A3F56" stroke-width="6" stroke-linecap="round"/>
+  <path d="M45 10 l4.6 4.6 L45 19.2 l-4.6 -4.6 Z" fill="#C98BA2"/>
+</svg>

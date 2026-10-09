@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Д · 1: «Печать» — круговая эмблема с текстом по дуге, в центре ножницы -->
+  <defs>
+    <path id="arcTop" d="M10 32 A22 22 0 0 1 54 32"/>
+    <path id="arcBot" d="M54 32 A22 22 0 0 1 10 32"/>
+  </defs>
+  <circle cx="32" cy="32" r="29" stroke="#7A3F56" stroke-width="1.6"/>
+  <circle cx="32" cy="32" r="17.5" stroke="#C98BA2" stroke-width="1.1" opacity="0.75"/>
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="7.2" letter-spacing="2.1" fill="#7A3F56">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">АУРА КРАСОТЫ</textPath>
+  </text>
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="6" letter-spacing="2.6" fill="#C98BA2">
+    <textPath href="#arcBot" startOffset="50%" text-anchor="middle">· СУРГУТ ·</textPath>
+  </text>
+  <g stroke="#7A3F56" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 36 L28.2 25.5"/>
+    <path d="M32 36 L35.8 25.5"/>
+    <path d="M32 36 L30 39.5"/>
+    <path d="M32 36 L34 39.5"/>
+    <circle cx="28.6" cy="42" r="2.5"/>
+    <circle cx="35.4" cy="42" r="2.5"/>
+  </g>
+  <circle cx="32" cy="36" r="1.5" fill="#7A3F56"/>
+  <circle cx="14" cy="32" r="1.3" fill="#C98BA2"/>
+  <circle cx="50" cy="32" r="1.3" fill="#C98BA2"/>
+</svg>

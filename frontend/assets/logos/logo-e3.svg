@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Д · 3: «Гравюрные ножницы» — каллиграфические лезвия, кольца-спирали, искры -->
+  <g stroke="#7A3F56" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 52 C25 40 39 27 50 15" stroke-width="2.8"/>
+    <path d="M47 52 C39 40 25 27 14 15" stroke-width="2.8"/>
+    <path d="M17 52 C21 49 23.5 46 25 42.5" stroke-width="2.4"/>
+    <path d="M47 52 C43 49 40.5 46 39 42.5" stroke-width="2.4"/>
+    <circle cx="22" cy="48.5" r="5"/>
+    <circle cx="42" cy="48.5" r="5"/>
+    <circle cx="22" cy="48.5" r="2.1" stroke-width="1.5" opacity="0.7"/>
+    <circle cx="42" cy="48.5" r="2.1" stroke-width="1.5" opacity="0.7"/>
+  </g>
+  <circle cx="32" cy="33.5" r="2" fill="#7A3F56"/>
+  <!-- искры -->
+  <g fill="#C98BA2">
+    <path d="M50 8 l1.2 3 3 1.2 -3 1.2 -1.2 3 -1.2 -3 -3 -1.2 3 -1.2 Z"/>
+    <path d="M14 10 l0.9 2.3 2.3 0.9 -2.3 0.9 -0.9 2.3 -0.9 -2.3 -2.3 -0.9 2.3 -0.9 Z" opacity="0.75"/>
+    <path d="M55 24 l0.8 2 2 0.8 -2 0.8 -0.8 2 -0.8 -2 -2 -0.8 2 -0.8 Z" opacity="0.6"/>
+  </g>
+</svg>

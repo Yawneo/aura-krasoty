@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Д · 2: «Монограмма-виньетка» — А в двойном круге из пряди и цветов -->
+  <circle cx="32" cy="32" r="28" stroke="#7A3F56" stroke-width="1.4"/>
+  <circle cx="32" cy="32" r="25.4" stroke="#C98BA2" stroke-width="0.9" opacity="0.8"/>
+  <!-- прядь, вплетённая в круг -->
+  <path d="M32 4.6 C18 8 12 20 17 31 C21 40 15 47 8 48" stroke="#C98BA2" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <path d="M32 59.4 C46 56 52 44 47 33 C43 24 49 17 56 16" stroke="#C98BA2" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <!-- серифная А -->
+  <g stroke="#7A3F56" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M23.5 45.5 L31.6 19.5" stroke-width="3.4"/>
+    <path d="M40.5 45.5 L32.4 19.5" stroke-width="3.4"/>
+    <path d="M31.6 19.5 C32.3 18.7 33.7 18.7 32.4 19.5" stroke-width="2.2"/>
+    <path d="M27.5 37.5 H36.5" stroke-width="2.3"/>
+    <path d="M20 45.5 H27" stroke-width="2.3"/>
+    <path d="M37 45.5 H44" stroke-width="2.3"/>
+  </g>
+  <!-- цветок над А и искры -->
+  <g transform="translate(32 15.5)" stroke="#7A3F56" stroke-width="1.2" stroke-linecap="round">
+    <circle r="1.5" fill="#C98BA2" stroke="none"/>
+    <ellipse rx="1.5" ry="3.4" transform="rotate(0) translate(0 -4.2)" fill="#F2D9E2"/>
+    <ellipse rx="1.5" ry="3.4" transform="rotate(72) translate(0 -4.2)" fill="#F2D9E2"/>
+    <ellipse rx="1.5" ry="3.4" transform="rotate(144) translate(0 -4.2)" fill="#F2D9E2"/>
+    <ellipse rx="1.5" ry="3.4" transform="rotate(216) translate(0 -4.2)" fill="#F2D9E2"/>
+    <ellipse rx="1.5" ry="3.4" transform="rotate(288) translate(0 -4.2)" fill="#F2D9E2"/>
+  </g>
+  <circle cx="45" cy="12" r="1.5" fill="#C98BA2"/>
+  <circle cx="19" cy="52" r="1.5" fill="#C98BA2"/>
+</svg>

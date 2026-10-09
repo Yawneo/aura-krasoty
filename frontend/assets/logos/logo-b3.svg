@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Б · 3: «Зеркало» — арка салона с мягким локоном внутри. Премиальный знак. -->
+  <rect x="19" y="8" width="26" height="46" rx="13" fill="#FDF6F9" stroke="#7A3F56" stroke-width="2.8"/>
+  <path d="M25.5 49 h13" stroke="#7A3F56" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M32 17 C27 22.5 27.5 28 32 32 C36.5 36 37 41.5 32 46"
+        stroke="#7A3F56" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+  <circle cx="32" cy="31.5" r="2.6" fill="#C98BA2"/>
+</svg>

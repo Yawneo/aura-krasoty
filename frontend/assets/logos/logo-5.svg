@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Вариант 5: «Бутон» — спираль-бутон розы с листиками -->
+  <circle cx="32" cy="27" r="21.5" fill="#FDF6F9" stroke="#C98BA2" stroke-width="1.6" opacity="0.9"/>
+  <g stroke="#7A3F56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M32 16 C24.5 16 20 21.5 20 27.5 C20 34 25.5 38.5 32 38.5 C38.5 38.5 44 34 44 27.5 C44 22.5 40 18.5 34.5 18.5 C29.5 18.5 26.5 22 26.5 26 C26.5 29.5 29 32 32 32 C34.5 32 36.5 30 36.5 27.5 C36.5 25.5 35 24 33 24" stroke-width="1.9"/>
+    <path d="M32 39 c0 6 -0.5 10 -2.5 14.5" stroke-width="2.2"/>
+    <path d="M30 45 c-5.5 -2 -10.5 -1 -13.5 2.5 C20.5 50.5 26.5 49.5 30 45 Z" fill="#F2D9E2"/>
+    <path d="M31 51 c5 -3 10 -2.6 13.5 0.5 C40.5 55 35.5 54.6 31 51 Z" fill="#F7E7EE"/>
+  </g>
+</svg>

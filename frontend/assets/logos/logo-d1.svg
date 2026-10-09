@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Г · 1: «Арка» — фирменная арка с фото героя, внутри ножницы -->
+  <path d="M19 56 V28 A13 13 0 0 1 45 28 V56" stroke="#7A3F56" stroke-width="2.7" fill="none" stroke-linecap="round"/>
+  <g stroke="#7A3F56" stroke-width="2.1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 40.5 L27.5 27"/>
+    <path d="M32 40.5 L36.5 27"/>
+    <path d="M32 40.5 L29.6 44.6"/>
+    <path d="M32 40.5 L34.4 44.6"/>
+    <circle cx="28.2" cy="47.6" r="2.7"/>
+    <circle cx="35.8" cy="47.6" r="2.7"/>
+  </g>
+  <circle cx="32" cy="40.5" r="1.7" fill="#7A3F56"/>
+</svg>

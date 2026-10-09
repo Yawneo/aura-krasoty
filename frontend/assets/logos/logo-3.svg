@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Вариант 3: «Локон» — завиток волоса, расцветающий цветком -->
+  <g stroke="#7A3F56" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M14 52 C14 38 24 34 32 34 C42 34 50 27 50 18 C50 11 45 7 39 7"/>
+    <path d="M14 52 C14 41 22 38 30 38 C38 38 44 32 44 24"/>
+  </g>
+  <g transform="translate(39 7)" stroke="#7A3F56" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 -1.5 C-3 -6 -2.6 -11.6 0 -14 C2.6 -11.5 3 -5.8 0 -1.5 Z" fill="#F7E7EE" transform="rotate(-20)"/>
+    <path d="M0 -1.5 C-3 -6 -2.6 -11.6 0 -14 C2.6 -11.5 3 -5.8 0 -1.5 Z" fill="#F2D9E2" transform="rotate(52)"/>
+    <path d="M0 -1.5 C-3 -6 -2.6 -11.6 0 -14 C2.6 -11.5 3 -5.8 0 -1.5 Z" fill="#F7E7EE" transform="rotate(124)"/>
+    <circle r="2.4" cy="0.5" fill="#C98BA2" stroke="none"/>
+  </g>
+  <circle cx="14" cy="52" r="3" fill="#D9A1B6"/>
+</svg>

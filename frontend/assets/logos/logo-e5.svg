@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Д · 5: «Лента и ножницы» — лента обвивает ножницы, как эмблема салона -->
+  <g stroke="#7A3F56" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 33 L24.5 21"/>
+    <path d="M32 33 L39.5 21"/>
+    <path d="M32 33 L30 36.5"/>
+    <path d="M32 33 L34 36.5"/>
+    <circle cx="28" cy="40" r="4.2"/>
+    <circle cx="36" cy="40" r="4.2"/>
+  </g>
+  <circle cx="32" cy="33" r="1.7" fill="#7A3F56"/>
+  <!-- лента -->
+  <path d="M12 24 C20 14 30 13 37 18 C45 24 52 22 56 15"
+        stroke="#D9A1B6" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+  <path d="M12 24 C20 14 30 13 37 18 C45 24 52 22 56 15"
+        stroke="#7A3F56" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.55"/>
+  <path d="M8 40 C16 47 24 49 32 47" stroke="#D9A1B6" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.85"/>
+  <!-- цветок на ленте -->
+  <g transform="translate(13 19)" stroke="#7A3F56" stroke-width="1.2" stroke-linecap="round">
+    <circle r="1.6" fill="#C98BA2" stroke="none"/>
+    <ellipse rx="1.7" ry="3.8" transform="rotate(0) translate(0 -4.6)" fill="#F7E7EE"/>
+    <ellipse rx="1.7" ry="3.8" transform="rotate(72) translate(0 -4.6)" fill="#F7E7EE"/>
+    <ellipse rx="1.7" ry="3.8" transform="rotate(144) translate(0 -4.6)" fill="#F7E7EE"/>
+    <ellipse rx="1.7" ry="3.8" transform="rotate(216) translate(0 -4.6)" fill="#F7E7EE"/>
+    <ellipse rx="1.7" ry="3.8" transform="rotate(288) translate(0 -4.6)" fill="#F7E7EE"/>
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль В · 2: «Локон» — плавная прядь волос с завитком -->
+  <path d="M42 9 C25 13 20 25 31 32 C42 39 42 51 26 55"
+        stroke="#7A3F56" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M42 9 c4.5 -1.5 8 1 8.5 5.5" stroke="#7A3F56" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+  <circle cx="50.5" cy="15" r="3.2" fill="#C98BA2"/>
+</svg>

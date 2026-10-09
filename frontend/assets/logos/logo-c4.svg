@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль В · 4: «Гребень» — расчёска с зубьями, мягко наклонённая -->
+  <g transform="rotate(-30 32 32)" stroke="#7A3F56" stroke-linecap="round" fill="none">
+    <path d="M10 28 h44" stroke-width="6"/>
+    <path d="M15 28 v11 M22 28 v11 M29 28 v11 M36 28 v11 M43 28 v11 M50 28 v11" stroke-width="3.4"/>
+  </g>
+  <circle cx="50" cy="14" r="3" fill="#C98BA2"/>
+</svg>

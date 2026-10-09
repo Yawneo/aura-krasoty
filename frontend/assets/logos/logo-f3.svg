@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Е · 3: «Цветная печать» — градиентное кольцо, в центре сочный цветок -->
+  <defs>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F49BB8"/><stop offset="0.5" stop-color="#F9C6A0"/><stop offset="1" stop-color="#B79CD4"/>
+    </linearGradient>
+    <radialGradient id="cen" cx="0.4" cy="0.35" r="0.9">
+      <stop offset="0" stop-color="#F6D488"/><stop offset="1" stop-color="#E89B5C"/>
+    </radialGradient>
+    <linearGradient id="lp" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBC0D4"/><stop offset="1" stop-color="#E9698F"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="27" stroke="url(#ring)" stroke-width="3.4"/>
+  <circle cx="32" cy="32" r="22.5" stroke="#F9C6A0" stroke-width="1" opacity="0.8"/>
+  <g stroke="#C2557B" stroke-width="1" stroke-linecap="round">
+    <path id="q" d="M32 35 C27.5 30 28 21.5 32 16 C36 21.5 36.5 30 32 35 Z" fill="url(#lp)" transform="rotate(0 32 35)"/>
+    <use href="#q" transform="rotate(72 32 35)"/>
+    <use href="#q" transform="rotate(144 32 35)"/>
+    <use href="#q" transform="rotate(216 32 35)"/>
+    <use href="#q" transform="rotate(288 32 35)"/>
+    <circle cx="32" cy="35" r="4.6" fill="url(#cen)"/>
+    <circle cx="30.6" cy="33.6" r="1.2" fill="#FFF3D6"/>
+  </g>
+  <!-- цветные бусины по кольцу -->
+  <circle cx="32" cy="7" r="1.9" fill="#F49BB8"/>
+  <circle cx="55" cy="27" r="1.7" fill="#B79CD4"/>
+  <circle cx="46" cy="54" r="1.7" fill="#F9C6A0"/>
+  <circle cx="18" cy="54" r="1.7" fill="#9CC794"/>
+  <circle cx="9" cy="27" r="1.7" fill="#DFA648"/>
+</svg>

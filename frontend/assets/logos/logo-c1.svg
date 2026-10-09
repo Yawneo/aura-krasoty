@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль В · 1: «Ножницы» — раскрытые ножницы, лаконично и узнаваемо -->
+  <g stroke="#7A3F56" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M32 24 L46 7"/>
+    <path d="M32 24 L18 7"/>
+    <path d="M32 24 C28.5 29 26.5 33.5 25 39"/>
+    <path d="M32 24 C35.5 29 37.5 33.5 39 39"/>
+    <circle cx="22" cy="47" r="6.4"/>
+    <circle cx="42" cy="47" r="6.4"/>
+  </g>
+  <circle cx="32" cy="24" r="3" fill="#7A3F56"/>
+</svg>

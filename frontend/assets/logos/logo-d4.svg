@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Г · 4: «Пилюля» — фирменная плашка-цена с белыми ножницами -->
+  <rect x="9" y="18.5" width="46" height="27" rx="13.5" fill="#7A3F56"/>
+  <g stroke="#FFFCFD" stroke-width="2.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 36.5 L27 23.5"/>
+    <path d="M32 36.5 L37 23.5"/>
+    <path d="M32 36.5 L29.5 40"/>
+    <path d="M32 36.5 L34.5 40"/>
+    <circle cx="27.9" cy="42.4" r="2.6"/>
+    <circle cx="36.1" cy="42.4" r="2.6"/>
+  </g>
+  <circle cx="32" cy="36.5" r="1.6" fill="#FFFCFD"/>
+</svg>

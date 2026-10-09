@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль В · 5: «Стрижка» — ножницы и срезанная прядь волос -->
+  <g stroke="#7A3F56" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M23 30 L31 16" stroke-width="3.2"/>
+    <path d="M23 30 L15 16" stroke-width="3.2"/>
+    <path d="M23 30 C21 33.5 20 36.5 19 39.5" stroke-width="3.2"/>
+    <path d="M23 30 C25 33.5 26 36.5 27 39.5" stroke-width="3.2"/>
+    <circle cx="17" cy="45" r="5" stroke-width="3.2"/>
+    <circle cx="29" cy="45" r="5" stroke-width="3.2"/>
+    <path d="M35 53 C45 47 40 39 49 33 C55 28.5 53 20 45 16" stroke-width="4.4"/>
+  </g>
+  <circle cx="23" cy="30" r="2.4" fill="#7A3F56"/>
+  <circle cx="46" cy="13.5" r="2.8" fill="#C98BA2"/>
+</svg>

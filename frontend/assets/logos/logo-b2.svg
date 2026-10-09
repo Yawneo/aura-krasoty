@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Стиль Б · 2: «Росчерк А» — рукописная монограмма одной линией. Современная каллиграфия. -->
+  <path d="M15 53 C19.5 43 25 28 32 13 C39 28 44.5 43 49 53 C44 53 41.5 51.5 39.8 48.5"
+        stroke="#7A3F56" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M24.2 40.5 C29.5 39 34.5 39 39.8 40.5" stroke="#7A3F56" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M49 53 c2.5 -4.5 2.5 -9 -0.5 -12.5" stroke="#7A3F56" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <circle cx="48.5" cy="14.5" r="3.4" fill="#C98BA2"/>
+</svg>

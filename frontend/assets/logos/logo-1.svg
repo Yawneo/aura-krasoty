@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Вариант 1: «Аура» — цветок в тонком круге-символе ауры -->
+  <circle cx="32" cy="32" r="28.5" stroke="#C98BA2" stroke-width="1.7" opacity="0.6"/>
+  <circle cx="32" cy="32" r="23" fill="#FDF6F9"/>
+  <g transform="translate(32 33)" stroke="#7A3F56" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    <g id="p1">
+      <path d="M0 -4 C-4.4 -10.5 -3.6 -18.5 0 -21.5 C3.6 -18.2 4.4 -10 0 -4 Z" fill="#F7E7EE"/>
+    </g>
+    <use href="#p1" transform="rotate(72)"/>
+    <use href="#p1" transform="rotate(144)"/>
+    <use href="#p1" transform="rotate(216)"/>
+    <use href="#p1" transform="rotate(288)"/>
+    <circle r="3.4" fill="#D9A1B6"/>
+  </g>
+</svg>

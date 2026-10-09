@@ -1,14 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <path id="fpetal" d="M32 26.5 C27.2 19.5 28 8.2 32.4 4.6 C36.9 8.6 37.6 19.8 33.6 26.6 C33.1 27.4 32.6 27.4 32 26.5 Z"/>
-  </defs>
-  <rect width="64" height="64" rx="16" fill="#F9F0F3"/>
-  <g stroke="#7A3F56" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -1.5) scale(0.92) translate(2.8 0)">
-    <use href="#fpetal" fill="#F7E7EE"/>
-    <use href="#fpetal" fill="#F2D9E2" transform="rotate(72 32 27)"/>
-    <use href="#fpetal" fill="#F7E7EE" transform="rotate(144 32 27)"/>
-    <use href="#fpetal" fill="#F2D9E2" transform="rotate(216 32 27)"/>
-    <use href="#fpetal" fill="#F7E7EE" transform="rotate(288 32 27)"/>
-    <circle cx="32" cy="26.8" r="4.4" fill="#D9A1B6"/>
+  <rect width="64" height="64" rx="14" fill="#FDF6F9"/>
+  <g transform="translate(32 32) scale(0.74) translate(-32 -32)">
+    <defs>
+      <linearGradient id="fp1" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#F9AFC5"/><stop offset="1" stop-color="#E9698F"/>
+      </linearGradient>
+      <linearGradient id="fp2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FBCFA3"/><stop offset="1" stop-color="#F0956B"/>
+      </linearGradient>
+      <radialGradient id="fc" cx="0.4" cy="0.35" r="0.9">
+        <stop offset="0" stop-color="#F6D488"/><stop offset="1" stop-color="#DFA648"/>
+      </radialGradient>
+      <linearGradient id="fl" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#9CC794"/><stop offset="1" stop-color="#5E9459"/>
+      </linearGradient>
+    </defs>
+    <path d="M32 34 C31 42 33 50 31 57" stroke="#5E9459" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M31.4 47 C25 45 21.5 41 21 36 C27.5 37 31 41 31.4 47 Z" fill="url(#fl)"/>
+    <path d="M32.6 51 C39 50 43 47 44 42 C37.5 42.5 33.5 46 32.6 51 Z" fill="url(#fl)"/>
+    <g stroke="#C2557B" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+      <path id="pp" d="M32 33 C26.5 27 27 15 32 8 C37 15 37.5 27 32 33 Z" fill="url(#fp1)"/>
+      <use href="#pp" fill="url(#fp2)" transform="rotate(60 32 33)"/>
+      <use href="#pp" fill="url(#fp1)" transform="rotate(120 32 33)"/>
+      <use href="#pp" fill="url(#fp2)" transform="rotate(180 32 33)"/>
+      <use href="#pp" fill="url(#fp1)" transform="rotate(240 32 33)"/>
+      <use href="#pp" fill="url(#fp2)" transform="rotate(300 32 33)"/>
+      <circle cx="32" cy="33" r="5.6" fill="url(#fc)"/>
+      <circle cx="30.3" cy="31.3" r="1.5" fill="#FFF3D6"/>
+    </g>
   </g>
 </svg>
