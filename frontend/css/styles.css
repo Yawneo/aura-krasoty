@@ -954,6 +954,21 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
   .hero__float--rating { left: -6px; bottom: 24px; }
   .hero__float--hours { right: -6px; top: 20px; }
   .services-grid, .teaser-grid, .catalog-grid, .works-grid { grid-template-columns: 1fr; }
+  /* преимущества: аккуратный список — иконка слева, текст в одну колонку */
+  .benefits { grid-template-columns: 1fr; gap: 0; padding: 22px 22px; }
+  .benefit {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    column-gap: 16px;
+    row-gap: 3px;
+    align-items: center;
+    text-align: left;
+    padding: 16px 2px;
+  }
+  .benefit + .benefit { border-top: 1px dashed var(--border-soft); }
+  .benefit img { grid-row: 1 / 3; width: 40px; height: 40px; margin: 0; align-self: center; }
+  .benefit b { font-size: 20px; margin-bottom: 0; }
+  .benefit span { font-size: 14px; line-height: 1.5; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .form-grid, .order-form__row { grid-template-columns: 1fr; }
   .search-box input { width: 100%; }
