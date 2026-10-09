@@ -34,8 +34,47 @@
     initBooking();
     initParallax();
     initHeaderShadow();
+    initSiteContent();
     document.querySelectorAll('input[type="tel"]').forEach(applyPhoneMask);
   });
+
+  /* ---------- Контент сайта ----------
+     Если владелец менял услуги или работы в админке,
+     секции на главной перерисовываются из новых данных.
+     Без правок остаётся исходная статичная разметка. */
+  async function initSiteContent() {
+    try {
+      const services = await AuraAPI.getServices();
+      if (services && services.length) renderServices(services);
+      const works = await AuraAPI.getWorks();
+      if (works && works.length) renderWorks(works);
+    } catch (err) {
+      console.error('[content]', err);
+    }
+  }
+
+  function renderServices(list) {
+    const grid = document.querySelector('.services-grid');
+    if (!grid) return;
+    grid.innerHTML = list.map((s) => `
+      <article class="service-card">
+        <div class="service-card__ico"><img src="assets/icons/${esc(s.icon || 'scissors')}.png" alt="" loading="lazy"></div>
+        <h3>${esc(s.name)}</h3>
+        <p>${esc(s.desc || '')}</p>
+        <div class="service-card__price">${esc(s.price || '')}</div>
+      </article>`).join('');
+  }
+
+  function renderWorks(list) {
+    const grid = document.querySelector('.works-grid');
+    if (!grid) return;
+    grid.innerHTML = list.map((w) => `
+      <figure class="work-card">
+        <img src="${esc(photoSrc(w.photo))}" alt="${esc(w.caption || '')}" loading="lazy"
+             onerror="this.onerror=null;this.src='assets/img/salon/work-4.jpg'">
+        <figcaption>${esc(w.caption || '')}</figcaption>
+      </figure>`).join('');
+  }
 
   /* ---------- Тень шапки при прокрутке ---------- */
   function initHeaderShadow() {
@@ -118,7 +157,7 @@
   window.photoSrc = function (photo) {
     const u = photo || 'assets/img/products/shampoo.svg';
     if (!u.startsWith('assets/')) return u;
-    return u + (u.includes('?') ? '&' : '?') + 'v=15';
+    return u + (u.includes('?') ? '&' : '?') + 'v=17';
   };
 
   /* ---------- Окно записи (кнопки «Записаться») ----------

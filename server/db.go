@@ -587,6 +587,316 @@ func createAppointment(pool *pgxpool.Pool, cfg *config) gin.HandlerFunc {
 }
 
 /* ============================================================
+   Записи клиентов (админка)
+   ============================================================ */
+
+func scanAppointments(rows pgx.Rows) []Appointment {
+	items := []Appointment{}
+	for rows.Next() {
+		var a Appointment
+		var createdAt time.Time
+		if err := rows.Scan(&a.ID, &a.CustomerName, &a.Phone, &a.Service, &a.Master,
+			&a.Date, &a.Time, &a.Comment, &a.Status, &createdAt); err == nil {
+			a.CreatedAt = createdAt.Format(time.RFC3339)
+			items = append(items, a)
+		}
+	}
+	return items
+}
+
+func listAppointments(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		rows, err := pool.Query(context.Background(),
+			`SELECT id, customer_name, phone, service, master, date, time, comment, status, created_at
+			 FROM appointments ORDER BY created_at DESC`)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer rows.Close()
+		c.JSON(http.StatusOK, scanAppointments(rows))
+	}
+}
+
+func updateAppointmentStatus(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		var body struct {
+			Status string `json:"status"`
+		}
+		if err := c.ShouldBindJSON(&body); err != nil ||
+			(body.Status != "new" && body.Status != "confirmed" && body.Status != "done") {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Статус: new, confirmed или done"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(),
+			`UPDATE appointments SET status=$1 WHERE id=$2`, body.Status, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Запись не найдена"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+}
+
+func deleteAppointment(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(), `DELETE FROM appointments WHERE id=$1`, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Запись не найдена"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+}
+
+/* ============================================================
+   Контент сайта: услуги и работы
+   ============================================================ */
+
+type Service struct {
+	ID       int    `json:"id"`
+	Name     string `json:"name"`
+	Desc     string `json:"desc"`
+	Price    string `json:"price"`
+	Icon     string `json:"icon"`
+	Sort     int    `json:"sort"`
+	Active   bool   `json:"active"`
+}
+
+type Work struct {
+	ID      int    `json:"id"`
+	Photo   string `json:"photo"`
+	Caption string `json:"caption"`
+	Sort    int    `json:"sort"`
+	Active  bool   `json:"active"`
+}
+
+func listServices(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		all := c.Query("all") == "1"
+		q := `SELECT id, name, description, price, icon, sort, active FROM services`
+		if !all {
+			q += ` WHERE active`
+		}
+		q += ` ORDER BY sort, id`
+		rows, err := pool.Query(context.Background(), q)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer rows.Close()
+		items := []Service{}
+		for rows.Next() {
+			var s Service
+			if err := rows.Scan(&s.ID, &s.Name, &s.Desc, &s.Price, &s.Icon, &s.Sort, &s.Active); err == nil {
+				items = append(items, s)
+			}
+		}
+		c.JSON(http.StatusOK, items)
+	}
+}
+
+func createService(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var s Service
+		if err := c.ShouldBindJSON(&s); err != nil || s.Name == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Нужно поле name"})
+			return
+		}
+		err := pool.QueryRow(context.Background(),
+			`INSERT INTO services(name, description, price, icon, sort, active)
+			 VALUES ($1,$2,$3,$4,$5,$6) RETURNING id`,
+			s.Name, s.Desc, s.Price, s.Icon, s.Sort, s.Active).Scan(&s.ID)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, s)
+	}
+}
+
+func updateService(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		var s Service
+		if err := c.ShouldBindJSON(&s); err != nil || s.Name == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Нужно поле name"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(),
+			`UPDATE services SET name=$1, description=$2, price=$3, icon=$4, sort=$5, active=$6 WHERE id=$7`,
+			s.Name, s.Desc, s.Price, s.Icon, s.Sort, s.Active, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Услуга не найдена"})
+			return
+		}
+		s.ID = id
+		c.JSON(http.StatusOK, s)
+	}
+}
+
+func patchService(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		var body struct {
+			Active *bool `json:"active"`
+		}
+		if err := c.ShouldBindJSON(&body); err != nil || body.Active == nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Ожидалось поле active"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(),
+			`UPDATE services SET active=$1 WHERE id=$2`, *body.Active, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Услуга не найдена"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+}
+
+func deleteService(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(), `DELETE FROM services WHERE id=$1`, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Услуга не найдена"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+}
+
+func listWorks(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		all := c.Query("all") == "1"
+		q := `SELECT id, photo, caption, sort, active FROM works`
+		if !all {
+			q += ` WHERE active`
+		}
+		q += ` ORDER BY sort, id`
+		rows, err := pool.Query(context.Background(), q)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		defer rows.Close()
+		items := []Work{}
+		for rows.Next() {
+			var w Work
+			if err := rows.Scan(&w.ID, &w.Photo, &w.Caption, &w.Sort, &w.Active); err == nil {
+				items = append(items, w)
+			}
+		}
+		c.JSON(http.StatusOK, items)
+	}
+}
+
+func createWork(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		var w Work
+		if err := c.ShouldBindJSON(&w); err != nil || w.Caption == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Нужно поле caption"})
+			return
+		}
+		err := pool.QueryRow(context.Background(),
+			`INSERT INTO works(photo, caption, sort, active) VALUES ($1,$2,$3,$4) RETURNING id`,
+			w.Photo, w.Caption, w.Sort, w.Active).Scan(&w.ID)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, w)
+	}
+}
+
+func updateWork(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		var w Work
+		if err := c.ShouldBindJSON(&w); err != nil || w.Caption == "" {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Нужно поле caption"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(),
+			`UPDATE works SET photo=$1, caption=$2, sort=$3, active=$4 WHERE id=$5`,
+			w.Photo, w.Caption, w.Sort, w.Active, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Работа не найдена"})
+			return
+		}
+		w.ID = id
+		c.JSON(http.StatusOK, w)
+	}
+}
+
+func patchWork(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		var body struct {
+			Active *bool `json:"active"`
+		}
+		if err := c.ShouldBindJSON(&body); err != nil || body.Active == nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Ожидалось поле active"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(),
+			`UPDATE works SET active=$1 WHERE id=$2`, *body.Active, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Работа не найдена"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+}
+
+func deleteWork(pool *pgxpool.Pool) gin.HandlerFunc {
+	return func(c *gin.Context) {
+		id, ok := atoiParam(c, "id")
+		if !ok {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Неверный id"})
+			return
+		}
+		tag, err := pool.Exec(context.Background(), `DELETE FROM works WHERE id=$1`, id)
+		if err != nil || tag.RowsAffected() == 0 {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Работа не найдена"})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"ok": true})
+	}
+}
+
+/* ============================================================
    Загрузка фото товаров
    ============================================================ */
 

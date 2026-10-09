@@ -108,6 +108,8 @@ func main() {
 		// публичные
 		api.GET("/categories", listCategories(pool))
 		api.GET("/products", listProducts(pool))
+		api.GET("/services", listServices(pool))
+		api.GET("/works", listWorks(pool))
 		api.POST("/orders", createOrder(pool, &cfg))
 		api.POST("/appointments", createAppointment(pool, &cfg))
 
@@ -120,6 +122,20 @@ func main() {
 			auth.GET("/orders", listOrders(pool))
 			auth.PUT("/orders/:id/status", updateOrderStatus(pool))
 			auth.DELETE("/orders/:id", deleteOrder(pool))
+
+			auth.GET("/appointments", listAppointments(pool))
+			auth.PUT("/appointments/:id/status", updateAppointmentStatus(pool))
+			auth.DELETE("/appointments/:id", deleteAppointment(pool))
+
+			auth.POST("/services", createService(pool))
+			auth.PUT("/services/:id", updateService(pool))
+			auth.PATCH("/services/:id", patchService(pool))
+			auth.DELETE("/services/:id", deleteService(pool))
+
+			auth.POST("/works", createWork(pool))
+			auth.PUT("/works/:id", updateWork(pool))
+			auth.PATCH("/works/:id", patchWork(pool))
+			auth.DELETE("/works/:id", deleteWork(pool))
 
 			auth.POST("/products", createProduct(pool))
 			auth.PUT("/products/:id", updateProduct(pool))

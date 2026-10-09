@@ -17,10 +17,32 @@ const AuraAPI = (() => {
     products: 'aura_products_v1',
     orders: 'aura_orders_v1',
     appointments: 'aura_appointments_v1',
+    services: 'aura_services_v1',
+    works: 'aura_works_v1',
     token: 'aura_token_v1',
   };
 
   const LOCAL_PASSWORD = 'aura2026'; // пароль админки в демо-режиме без бэкенда
+
+  /* ---------- Контент сайта: значения по умолчанию ----------
+     Совпадают с разметкой index.html. Пока владелец ничего
+     не менял в админке, сайт показывает статику; после первого
+     сохранения данные живут в localStorage (или в БД с бэкендом). */
+
+  const DEFAULT_SERVICES = [
+    { id: 1, name: 'Женская стрижка', desc: 'Подберём форму под лицо и тип волос, научим укладывать дома.', price: 'от 1 500 ₽', icon: 'scissors', active: true, sort: 1 },
+    { id: 2, name: 'Мужская стрижка', desc: 'Классика, фейды и современные формы — аккуратно и быстро.', price: 'от 800 ₽', icon: 'comb', active: true, sort: 2 },
+    { id: 3, name: 'Окрашивание и мелирование', desc: 'Однотонное окрашивание, мелирование, растяжка цвета, выход из блонда.', price: 'от 6 000 ₽', icon: 'sparkles', active: true, sort: 3 },
+    { id: 4, name: 'Укладки и локоны', desc: 'Повседневные объёмные укладки и вечерние локоны к событию.', price: 'от 700 ₽', icon: 'hair-dryer', active: true, sort: 4 },
+    { id: 5, name: 'Кератин и ботокс', desc: 'Гладкость и блеск на месяцы вперёд, уход за непослушными волосами.', price: 'от 3 500 ₽', icon: 'spa', active: true, sort: 5 },
+    { id: 6, name: 'Сложное окрашивание', desc: 'Осветление корней и тонирование, колорирование, сложные техники.', price: 'от 8 000 ₽', icon: 'lotus', active: true, sort: 6 },
+  ];
+
+  const DEFAULT_WORKS = [
+    { id: 1, photo: 'assets/img/salon/work-4.jpg', caption: 'Локоны на высоком хвосте', active: true, sort: 1 },
+    { id: 2, photo: 'assets/img/salon/work-5.jpg', caption: 'Гладкость и блонд', active: true, sort: 2 },
+    { id: 3, photo: 'assets/img/salon/work-6.jpg', caption: 'Серебристое пикси', active: true, sort: 3 },
+  ];
 
   let mode = null;   // 'api' | 'local'
   let base = null;   // базовый URL API, например http://localhost:8080/api
@@ -246,6 +268,118 @@ const AuraAPI = (() => {
       items.unshift(saved);
       write(LS.appointments, items);
       return saved;
+    },
+
+    /* --- Записи клиентов (админка) --- */
+
+    async getAppointments() {
+      await detect();
+      if (mode === 'api') return req('/admin/appointments');
+      return read(LS.appointments, []);
+    },
+
+    async setAppointmentStatus(id, status) {
+      await detect();
+      if (mode === 'api') { await req(`/admin/appointments/${id}/status`, { method: 'PUT', body: JSON.stringify({ status }) }); return; }
+      const items = read(LS.appointments, []);
+      const a = items.find((x) => x.id === id);
+      if (a) { a.status = status; write(LS.appointments, items); }
+    },
+
+    async deleteAppointment(id) {
+      await detect();
+      if (mode === 'api') { await req(`/admin/appointments/${id}`, { method: 'DELETE' }); return; }
+      write(LS.appointments, read(LS.appointments, []).filter((a) => a.id !== id));
+    },
+
+    /* --- Контент сайта: услуги и работы ---
+       Возвращают массив правок или null, если владелец ещё ничего
+       не менял — тогда сайт показывает исходную разметку. */
+
+    async getServices({ all = false, defaults = false } = {}) {
+      await detect();
+      if (mode === 'api') return req(`/services${all ? '?all=1' : ''}`);
+      const items = read(LS.services, null);
+      if (!items) return defaults ? DEFAULT_SERVICES.map((s) => ({ ...s })) : null;
+      const list = [...items].sort((a, b) => (a.sort || 0) - (b.sort || 0) || a.id - b.id);
+      return all ? list : list.filter((s) => s.active);
+    },
+
+    async saveService(s) {
+      await detect();
+      if (mode === 'api') {
+        return s.id
+          ? req(`/admin/services/${s.id}`, { method: 'PUT', body: JSON.stringify(s) })
+          : req('/admin/services', { method: 'POST', body: JSON.stringify(s) });
+      }
+      const items = read(LS.services, null) || DEFAULT_SERVICES.map((x) => ({ ...x }));
+      if (s.id) {
+        const i = items.findIndex((x) => x.id === s.id);
+        if (i >= 0) items[i] = { ...items[i], ...s };
+      } else {
+        s.id = nextId(items);
+        items.push(s);
+      }
+      write(LS.services, items);
+      return s;
+    },
+
+    async setServiceActive(id, active) {
+      await detect();
+      if (mode === 'api') { await req(`/admin/services/${id}`, { method: 'PATCH', body: JSON.stringify({ active }) }); return; }
+      const items = read(LS.services, null) || DEFAULT_SERVICES.map((x) => ({ ...x }));
+      const s = items.find((x) => x.id === id);
+      if (s) { s.active = active; write(LS.services, items); }
+    },
+
+    async deleteService(id) {
+      await detect();
+      if (mode === 'api') { await req(`/admin/services/${id}`, { method: 'DELETE' }); return; }
+      const items = read(LS.services, null) || DEFAULT_SERVICES.map((x) => ({ ...x }));
+      write(LS.services, items.filter((s) => s.id !== id));
+    },
+
+    async getWorks({ all = false, defaults = false } = {}) {
+      await detect();
+      if (mode === 'api') return req(`/works${all ? '?all=1' : ''}`);
+      const items = read(LS.works, null);
+      if (!items) return defaults ? DEFAULT_WORKS.map((w) => ({ ...w })) : null;
+      const list = [...items].sort((a, b) => (a.sort || 0) - (b.sort || 0) || a.id - b.id);
+      return all ? list : list.filter((w) => w.active);
+    },
+
+    async saveWork(w) {
+      await detect();
+      if (mode === 'api') {
+        return w.id
+          ? req(`/admin/works/${w.id}`, { method: 'PUT', body: JSON.stringify(w) })
+          : req('/admin/works', { method: 'POST', body: JSON.stringify(w) });
+      }
+      const items = read(LS.works, null) || DEFAULT_WORKS.map((x) => ({ ...x }));
+      if (w.id) {
+        const i = items.findIndex((x) => x.id === w.id);
+        if (i >= 0) items[i] = { ...items[i], ...w };
+      } else {
+        w.id = nextId(items);
+        items.push(w);
+      }
+      write(LS.works, items);
+      return w;
+    },
+
+    async setWorkActive(id, active) {
+      await detect();
+      if (mode === 'api') { await req(`/admin/works/${id}`, { method: 'PATCH', body: JSON.stringify({ active }) }); return; }
+      const items = read(LS.works, null) || DEFAULT_WORKS.map((x) => ({ ...x }));
+      const w = items.find((x) => x.id === id);
+      if (w) { w.active = active; write(LS.works, items); }
+    },
+
+    async deleteWork(id) {
+      await detect();
+      if (mode === 'api') { await req(`/admin/works/${id}`, { method: 'DELETE' }); return; }
+      const items = read(LS.works, null) || DEFAULT_WORKS.map((x) => ({ ...x }));
+      write(LS.works, items.filter((w) => w.id !== id));
     },
 
     /* --- Утилиты --- */

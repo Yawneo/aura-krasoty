@@ -6,7 +6,7 @@
   <title>Панель управления — Аура красоты</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
-  <link rel="stylesheet" href="css/styles.css?v=15">
+  <link rel="stylesheet" href="css/styles.css?v=17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" media="print" onload="this.media='all'"
@@ -19,9 +19,11 @@
 
   <!-- ======= Экран входа ======= -->
   <div class="admin-login" id="loginScreen">
-    <div class="modal" style="max-width:420px">
-      <div class="center" style="margin-bottom:16px">
-        <img src="assets/logo.svg?v=2" alt="" style="width:64px;height:64px;margin:0 auto 10px">
+    <img class="admin-login__sprig admin-login__sprig--l" src="assets/img/decor/sprig-corner.svg?v=3" alt="">
+    <img class="admin-login__sprig admin-login__sprig--r" src="assets/img/decor/sprig-corner.svg?v=3" alt="">
+    <div class="modal admin-login__card" style="max-width:420px">
+      <div class="center" style="margin-bottom:18px">
+        <img src="assets/logo.svg?v=2" alt="" style="width:72px;height:72px;margin:0 auto 12px">
         <h3 style="margin-bottom:4px">Панель управления</h3>
         <p style="color:var(--text-muted);font-size:14px">Салон красоты «Аура красоты»</p>
       </div>
@@ -51,137 +53,154 @@
     </div>
 
     <main class="container" style="padding-bottom:80px">
-      <div class="admin-tabs">
-        <button class="admin-tab active" data-tab="products">🧴 Товары и цены</button>
-        <button class="admin-tab" data-tab="status">🏷 Статусы по категориям</button>
-        <button class="admin-tab" data-tab="categories">📁 Категории</button>
-        <button class="admin-tab" data-tab="orders">🧾 Заказы</button>
+      <div class="admin-hero">
+        <span class="eyebrow">аура красоты · панель</span>
+        <h1>Управление <span class="title-accent">сайтом</span></h1>
+        <p>Услуги, работы и записи клиентов — всё в одном месте</p>
       </div>
 
-      <!-- ===== Товары и цены ===== -->
-      <section class="admin-panel active" id="panel-products">
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="services">🏷 Услуги и цены</button>
+        <button class="admin-tab" data-tab="works">🖼 Наши работы</button>
+        <button class="admin-tab" data-tab="appointments">📅 Записи клиентов</button>
+      </div>
+
+      <!-- ===== Услуги и цены ===== -->
+      <section class="admin-panel active" id="panel-services">
         <div class="admin-head-row">
-          <h2>Товары <small id="productsCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-            <select id="productFilter" class="chip" style="appearance:none"></select>
-            <button class="btn btn--primary btn--sm" id="addProductBtn">+ Добавить товар</button>
-          </div>
+          <h2>Услуги <small id="servicesCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
+          <button class="btn btn--primary btn--sm" id="addServiceBtn">+ Добавить услугу</button>
         </div>
         <table class="admin-table">
           <thead>
-            <tr><th></th><th>Название</th><th>Категория</th><th>Цена</th><th>Статус</th><th style="text-align:right">Действия</th></tr>
+            <tr><th></th><th>Название</th><th>Цена</th><th>Статус</th><th style="text-align:right">Действия</th></tr>
           </thead>
-          <tbody id="productsTbody"></tbody>
+          <tbody id="servicesTbody"></tbody>
         </table>
       </section>
 
-      <!-- ===== Статусы по категориям ===== -->
-      <section class="admin-panel" id="panel-status">
+      <!-- ===== Наши работы ===== -->
+      <section class="admin-panel" id="panel-works">
         <div class="admin-head-row">
-          <h2>Статусы товаров</h2>
-          <p style="color:var(--text-muted);font-size:14px">Скройте товар на время, отредактируйте или удалите его</p>
-        </div>
-        <div id="statusBoard"></div>
-      </section>
-
-      <!-- ===== Категории ===== -->
-      <section class="admin-panel" id="panel-categories">
-        <div class="admin-head-row">
-          <h2>Категории каталога</h2>
-          <button class="btn btn--primary btn--sm" id="addCategoryBtn">+ Добавить категорию</button>
+          <h2>Наши работы <small id="worksCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
+          <button class="btn btn--primary btn--sm" id="addWorkBtn">+ Добавить фото</button>
         </div>
         <table class="admin-table">
           <thead>
-            <tr><th>Название</th><th>Идентификатор</th><th>Товаров</th><th style="text-align:right">Действия</th></tr>
+            <tr><th>Фото</th><th>Подпись</th><th>Статус</th><th style="text-align:right">Действия</th></tr>
           </thead>
-          <tbody id="categoriesTbody"></tbody>
+          <tbody id="worksTbody"></tbody>
         </table>
       </section>
 
-      <!-- ===== Заказы ===== -->
-      <section class="admin-panel" id="panel-orders">
+      <!-- ===== Записи клиентов ===== -->
+      <section class="admin-panel" id="panel-appointments">
         <div class="admin-head-row">
-          <h2>Заказы <small id="ordersCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
-          <select id="orderFilter" class="chip" style="appearance:none">
-            <option value="all">Все заказы</option>
-            <option value="new">Только новые</option>
-            <option value="delivered">Доставленные</option>
+          <h2>Записи <small id="appointmentsCount" style="font-family:var(--font-sans);font-size:14px;color:var(--text-muted)"></small></h2>
+          <select id="appointmentFilter" class="chip" style="appearance:none">
+            <option value="all">Все записи</option>
+            <option value="new">Новые</option>
+            <option value="confirmed">Подтверждённые</option>
+            <option value="done">Выполненные</option>
           </select>
         </div>
-        <div id="ordersList"></div>
+        <div id="appointmentsList"></div>
       </section>
     </main>
   </div>
 
-  <!-- ======= Модалка товара ======= -->
-  <div class="modal-overlay" id="productModal">
-    <div class="modal" style="max-width:640px">
-      <button class="modal__close" id="productModalClose" aria-label="Закрыть">✕</button>
-      <h3 id="productModalTitle">Новый товар</h3>
-      <form id="productForm">
-        <input type="hidden" id="productId">
+  <!-- ======= Модалка услуги ======= -->
+  <div class="modal-overlay" id="serviceModal">
+    <div class="modal" style="max-width:560px">
+      <button class="modal__close" id="serviceModalClose" aria-label="Закрыть">✕</button>
+      <h3 id="serviceModalTitle">Новая услуга</h3>
+      <form id="serviceForm">
+        <input type="hidden" id="serviceId">
         <div class="form-grid">
           <div class="field full">
-            <label for="productName">Название *</label>
-            <input type="text" id="productName" required placeholder="Шампунь «Роза и шёлк»">
+            <label for="serviceName">Название *</label>
+            <input type="text" id="serviceName" required placeholder="Женская стрижка">
           </div>
           <div class="field">
-            <label for="productCategory">Категория</label>
-            <select id="productCategory"></select>
+            <label for="servicePrice">Цена (как показывать)</label>
+            <input type="text" id="servicePrice" placeholder="от 1 500 ₽">
           </div>
           <div class="field">
-            <label for="productSort">Порядок показа</label>
-            <input type="number" id="productSort" value="0" min="0">
-          </div>
-          <div class="field">
-            <label for="productPrice">Цена, ₽ *</label>
-            <input type="number" id="productPrice" required min="0" step="10" placeholder="790">
-          </div>
-          <div class="field">
-            <label for="productDiscount">Скидка, %</label>
-            <input type="number" id="productDiscount" value="0" min="0" max="99">
+            <label for="serviceSort">Порядок показа</label>
+            <input type="number" id="serviceSort" value="0" min="0">
           </div>
           <div class="field full">
-            <label for="productPhoto">Фото (ссылка или файл из набора сайта)</label>
-            <input type="text" id="productPhoto" list="builtinPhotos" placeholder="assets/img/products/shampoo.svg">
-            <datalist id="builtinPhotos">
-              <option value="assets/img/products/shampoo.svg">шампунь</option>
-              <option value="assets/img/products/balm.svg">бальзам</option>
-              <option value="assets/img/products/mask.svg">маска</option>
-              <option value="assets/img/products/oil.svg">масло</option>
-              <option value="assets/img/products/spray.svg">спрей</option>
-              <option value="assets/img/products/serum.svg">сыворотка</option>
-              <option value="assets/img/products/tonic.svg">тоник</option>
-              <option value="assets/img/products/keratin.svg">кератин</option>
-              <option value="assets/img/products/comb.svg">расчёска</option>
-              <option value="assets/img/products/clips.svg">заколки</option>
-              <option value="assets/img/products/scrunchie.svg">резинки</option>
-              <option value="assets/img/products/dryer.svg">фен</option>
-              <option value="assets/img/products/iron.svg">утюжок</option>
-              <option value="assets/img/products/curler.svg">плойка</option>
-              <option value="assets/img/products/gift.svg">подарочный набор</option>
-              <option value="assets/img/products/set.svg">набор в корзинке</option>
-            </datalist>
-            <div class="photo-preview" id="photoPreview">Здесь появится фото товара</div>
+            <label for="serviceIcon">Иконка</label>
+            <select id="serviceIcon">
+              <option value="scissors">✂️ Ножницы — стрижки</option>
+              <option value="comb">🪮 Расчёска</option>
+              <option value="sparkles">✨ Искры — окрашивание</option>
+              <option value="hair-dryer">💨 Фен — укладки</option>
+              <option value="spa">🧖 Уход — кератин, ботокс</option>
+              <option value="lotus">🪷 Лотос — сложные техники</option>
+              <option value="flower">🌸 Цветок — прочее</option>
+              <option value="star">⭐ Звезда — прочее</option>
+            </select>
           </div>
           <div class="field full">
-            <label for="productDesc">Описание</label>
-            <textarea id="productDesc" rows="2" placeholder="Короткое описание для карточки"></textarea>
+            <label for="serviceDesc">Описание</label>
+            <textarea id="serviceDesc" rows="2" placeholder="Короткое описание для карточки"></textarea>
           </div>
           <div class="field full">
-            <label class="check"><input type="checkbox" id="productActive" checked> Показывать в каталоге</label>
+            <label class="check"><input type="checkbox" id="serviceActive" checked> Показывать на сайте</label>
           </div>
         </div>
         <div style="display:flex;gap:12px;margin-top:18px">
           <button type="submit" class="btn btn--primary">Сохранить</button>
-          <button type="button" class="btn btn--ghost" id="productCancel">Отмена</button>
+          <button type="button" class="btn btn--ghost" id="serviceCancel">Отмена</button>
         </div>
       </form>
     </div>
   </div>
 
-  <script src="js/api.js?v=15"></script>
-  <script src="js/main.js?v=15"></script>
-  <script src="js/admin.js?v=15"></script>
+  <!-- ======= Модалка работы ======= -->
+  <div class="modal-overlay" id="workModal">
+    <div class="modal" style="max-width:560px">
+      <button class="modal__close" id="workModalClose" aria-label="Закрыть">✕</button>
+      <h3 id="workModalTitle">Новое фото</h3>
+      <form id="workForm">
+        <input type="hidden" id="workId">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="workPhoto">Фото (ссылка на файл)</label>
+            <input type="text" id="workPhoto" list="salonPhotos" placeholder="assets/img/salon/work-4.jpg">
+            <datalist id="salonPhotos">
+              <option value="assets/img/salon/work-1.jpg">вечерний пучок</option>
+              <option value="assets/img/salon/work-2.jpg">мягкие кудри</option>
+              <option value="assets/img/salon/work-3.jpg">завивка на блонд</option>
+              <option value="assets/img/salon/work-4.jpg">локоны на хвосте</option>
+              <option value="assets/img/salon/work-5.jpg">гладкость и блонд</option>
+              <option value="assets/img/salon/work-6.jpg">серебристое пикси</option>
+            </datalist>
+            <div class="photo-preview" id="workPreview">Здесь появится фото работы</div>
+          </div>
+          <div class="field full">
+            <label for="workCaption">Подпись *</label>
+            <input type="text" id="workCaption" required placeholder="Локоны на высоком хвосте">
+          </div>
+          <div class="field">
+            <label for="workSort">Порядок показа</label>
+            <input type="number" id="workSort" value="0" min="0">
+          </div>
+          <div class="field">
+            <label class="check"><input type="checkbox" id="workActive" checked> Показывать на сайте</label>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:18px">
+          <button type="submit" class="btn btn--primary">Сохранить</button>
+          <button type="button" class="btn btn--ghost" id="workCancel">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js?v=17"></script>
+  <script src="js/main.js?v=17"></script>
+  <script src="js/admin.js?v=17"></script>
 </body>
 </html>
