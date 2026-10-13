@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -42,7 +43,7 @@ func connectDB(url string) (*pgxpool.Pool, error) {
 
 // migrate применяет SQL-файлы из ./migrations (по порядку имени).
 func migrate(pool *pgxpool.Pool) error {
-	if err := pool.Exec(context.Background(),
+	if _, err := pool.Exec(context.Background(),
 		`CREATE TABLE IF NOT EXISTS schema_migrations (name TEXT PRIMARY KEY, applied_at TIMESTAMPTZ DEFAULT now())`); err != nil {
 		return err
 	}

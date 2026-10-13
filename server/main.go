@@ -12,6 +12,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -153,8 +154,25 @@ func main() {
 	// раздача загруженных фото (в проде это делает nginx)
 	r.Static("/uploads", "./uploads")
 
-	log.Printf("[api] слушаю http://localhost:%s", cfg.port)
-	if err := r.Run(":" + cfg.port); err != nil {
+	// STATIC_DIR — раздавать фронтенд самим сервером (деплой без docker/nginx-root)
+	if dir := os.Getenv("STATIC_DIR"); dir != "" {
+		r.NoRoute(func(c *gin.Context) {
+			p := filepath.Join(dir, filepath.Clean("/"+c.Request.URL.Path))
+			if st, err := os.Stat(p); err == nil && !st.IsDir() {
+				c.File(p)
+				return
+			}
+			if st, err := os.Stat(filepath.Join(p, "index.html")); err == nil && !st.IsDir() {
+				c.File(filepath.Join(p, "index.html"))
+				return
+			}
+			c.File(filepath.Join(dir, "index.html"))
+		})
+	}
+
+	addr := env("BIND_HOST", "") + ":" + cfg.port
+	log.Printf("[api] слушаю http://%s", addr)
+	if err := r.Run(addr); err != nil {
 		log.Fatal(err)
 	}
 }
