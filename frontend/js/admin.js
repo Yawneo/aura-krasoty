@@ -36,19 +36,6 @@
     $('#loginScreen').style.display = 'none';
     $('#adminShell').classList.add('active');
     await refreshAll();
-    await showModeBadge();
-  }
-
-  async function showModeBadge() {
-    const mode = await AuraAPI.mode();
-    const badge = $('#modeBadge');
-    if (mode === 'api') {
-      badge.textContent = 'бэкенд подключён';
-      badge.className = 'mode-badge mode-badge--api';
-    } else {
-      badge.textContent = 'демо-режим (без бэкенда)';
-      badge.className = 'mode-badge mode-badge--local';
-    }
   }
 
   function logout() {

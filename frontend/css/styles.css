@@ -844,12 +844,6 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.15
   box-shadow: 0 8px 28px rgba(97, 47, 68, 0.07);
 }
 .admin-topbar__inner { display: flex; align-items: center; gap: 22px; }
-.admin-topbar .mode-badge {
-  font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em;
-  padding: 6px 14px; border-radius: var(--radius-pill);
-}
-.mode-badge--local { background: var(--pink-100); color: var(--rose-dark); }
-.mode-badge--api { background: var(--rose-deep); color: var(--white); }
 
 .admin-tabs {
   display: flex; gap: 10px;
